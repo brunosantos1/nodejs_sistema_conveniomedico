@@ -1,0 +1,168 @@
+swagger: '2.0'
+info:
+  description: 'E-commerce: Lista de planos disponíveis para comercialização, suas respectivas redes referenciadas e vigências'
+  version: 1.0.0
+  title: 'Planos'
+  termsOfService: ''
+  contact:
+    email: dev-qualitech@qualicorp.com.br
+host: 'devawsap03:8082'
+schemes:
+  - http
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: X-Gravitee-Api-Key
+    in: header
+    description: 'Token de acesso à API'
+security: 
+ - api_key: []
+parameters:
+    idplano:
+      name: ID
+      in: path
+      description: "Código Plano"
+      type: number
+      required: true 
+paths:
+  /plano:
+    post:
+      summary: 'Lista de planos'
+      description: 'Lista de planos'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: filtros
+          required: true
+          schema:
+            $ref: '#/definitions/filtros'
+      responses:
+        '400':
+          description: 'Parâmetros de entrada devem ser informados.'
+        '404':
+          description: 'Não foram encontrados planos com a pesquisa informada.'
+        '200':
+          description: 'lista de planos com redes referenciadas' 
+          schema:
+           $ref: '#/definitions/planos'
+  /plano/vigencia/{ID}:
+    get:
+      summary: ''
+      description: ''
+      produces: 
+        - application/json
+      parameters:
+        - $ref: '#/parameters/idplano'  
+      responses:
+        '404':
+          description: 'Não foram encontradas datas de vigência para o plano informado'
+        '200':
+          description: 'Lista de vigencias' 
+          schema:
+           $ref: '#/definitions/vigencias'
+definitions:
+  filtros:
+    type: object
+    properties:
+      entidade:
+        type: string
+        example: 'UBES' 
+      uf:
+        type: string
+        example: 'SP'
+      cidade:
+        type: string
+        example: 'São Paulo'
+      datanascimento:
+        type: array
+        items:
+          type: string
+          format: date
+        example: ['2019-07-01','2010-05-03','1970-07-30'] 
+  vigencias:
+    type: array
+    items:
+      type: object
+      properties:
+        datavigencia:
+          type: string
+          format: date 
+          example: "2019-10-01"
+        datafechamentoaceitacao:
+          type: string
+          format: date 
+          example: "2019-09-18"
+        datafechamentoreapresentacao:
+          type: string
+          format: date 
+          example: "2019-09-23"    
+  planos:
+    type: object
+    properties:
+      total:
+        type: number
+        example: 20
+      planos:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: number
+              example: 123456
+            plano:
+              type: string
+              example: 'Exato Adesão Trad.16 A AHO QP CO'
+            coparticipacao:
+              type: boolean
+            reembolso:
+              type: boolean
+            codigo_ans:
+              type: number
+              example: 12345
+            operadora:
+              type: string
+              example: 'SulAmérica Saúde'
+            abrangencia:
+              type: string
+              example: 'Estadual'
+            tipo_acomodacao:
+              type: string
+              example: 'Enfermaria'
+            segmentacao:
+              type: string
+              example: 'Hospitalar com Obstetrícia'
+            precos:
+              type: object
+              properties:
+                total:
+                  type: number
+                  multipleOf: 0.01
+                  example: 1500.59
+                precos:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      idade:
+                        type: number
+                        example: 20
+                      preco:
+                        type: number
+                        multipleOf: 0.01
+                        example: 1500.59
+            rede_referencia:
+              type: array
+              items:
+                type: object
+                properties:
+                  TipoPrestador:
+                    type: string
+                    example: 'Hospital'
+                  Prestador:
+                    type: string
+                    example: 'Hosp. Alvorada – Brasilia | PS/INT'
+ 

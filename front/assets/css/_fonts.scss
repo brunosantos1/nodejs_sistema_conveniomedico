@@ -1,0 +1,69 @@
+@font-face {
+    font-family: 'calibri';
+    src: local('calibri'),
+        url('/assets/fonts/calibri.woff2') format('woff2'),
+        url('/assets/fonts/calibri.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'calibri';
+    src: local('calibri Bold'), local('calibri-Bold'),
+        url('/assets/fonts/calibri-Bold.woff2') format('woff2'),
+        url('/assets/fonts/calibri-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'calibri';
+    src: local('calibri Light'), local('calibri-Light'),
+        url('/assets/fonts/calibri-Light.woff2') format('woff2'),
+        url('/assets/fonts/calibri-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Satero Serif LT Pro';
+    src: local('Satero Serif LT Pro Light'), local('SateroSerifLTPro-Light'),
+        url('/assets/SateroSerifLTPro-Light.woff2') format('woff2'),
+        url('/assets/SateroSerifLTPro-Light.woff') format('woff'),
+        url('/assets/SateroSerifLTPro-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Satero Serif LT Pro';
+    src: local('Satero Serif LT Pro Regular'), local('SateroSerifLTPro-Regular'),
+        url('/assets/SateroSerifLTPro-Regular.woff2') format('woff2'),
+        url('/assets/SateroSerifLTPro-Regular.woff') format('woff'),
+        url('/assets/SateroSerifLTPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Satero Serif LT Pro';
+    src: local('Satero Serif LT Pro Bold'), local('SateroSerifLTPro-Bold'),
+        url('/assets/SateroSerifLTPro-Bold.woff2') format('woff2'),
+        url('/assets/SateroSerifLTPro-Bold.woff') format('woff'),
+        url('/assets/SateroSerifLTPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Satero Serif LT Pro';
+    src: local('Satero Serif LT Pro Medium'), local('SateroSerifLTPro-Medium'),
+        url('/assets/SateroSerifLTPro-Medium.woff2') format('woff2'),
+        url('/assets/SateroSerifLTPro-Medium.woff') format('woff'),
+        url('/assets/SateroSerifLTPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+

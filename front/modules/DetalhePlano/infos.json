@@ -1,0 +1,68 @@
+{
+    "beneficio":{
+        "descricao":"Opção {{nivel}} da {{plano}}. Optando por este plano, você contará com:\n",
+        "relacao":{
+            "acomodacao":"- Acomodação {{tipo_acomodacao}}",
+            "abrangencia":"- Rede de atendimento {{abrangencia}}",
+            "reembolso":"- Reembolso"
+        }
+    },
+    "abrangencia": {
+        "titulo": "Área de abrangência",
+        "icone": "abrangencia.png",
+        "texto": "O plano {{plano}} inclusive pertence a uma área de abrangência de nível <b>{{abrangencia}}</b>"
+    },
+    "hospital": {
+        "titulo_modal": "Cobertura de Hospitais atendidos por este plano",
+        "titulo": "Hospitais inclusos",
+        "icone": "hospitais.png",
+        "texto": "Nesse plano você tem acesso aos hospitais: ",
+        "quantidade": 5,
+        "chave_rede_credenciada": "Hospital"
+    },
+    "laboratório": {
+        "titulo_modal": "Cobertura de Laboratórios atendidos por este plano",
+        "titulo": "Laboratórios inclusos",
+        "icone": "laboratorios.png",
+        "texto": "Os laboratórios inclusos nesse plano: ",
+        "quantidade": 5,
+        "chave_rede_credenciada": "Laboratório"
+    },
+    "prontoSocorro": {
+        "titulo_modal": "Cobertura de Pronto Socorros atendidos por este plano",
+        "titulo": "Prontos socorros inclusos",
+        "icone": "abrangencia.png",
+        "texto": "Os pronto socorros inclusos nesse plano: ",
+        "quantidade": 5,
+        "chave_rede_credenciada": "Pronto Socorro"
+    },
+    "coparticipacao": "Sinônimo de qualide, credibilidade, solidez e segurança, está presente em todo o território nacional, com produtos criados para atender ao segmento empresarial da melhor forma possível.",
+    "ans": "Nome do plano: {{nome_plano_ans}}<br/>Número de registro: {{codigo_ans}}",
+    "infoAdicionais": "Sinônimo de qualide, credibilidade, solidez e segurança, está presente em todo o território nacional, com produtos criados para atender ao segmento empresarial da melhor forma possível.",
+    "infoPreco":"Informação importante: valor do plano, sem a adição de taxas e impostos",
+    "sucesso": {
+        "lead": {
+            "icone": "sucesso.png",
+            "titulo": "Parabéns {{nome}},",
+            "texto": "recebemos os dados abaixo e em breve um de nossos corretores irá entrar em contato com você"
+        },
+        "cliente": {
+            "icone": "sucesso.png",
+            "titulo": "Informações enviadas com sucesso!",
+            "texto": "Parabéns {{nome}}, recebemos os dados abaixo e em breve um de nossos corretores irá entrar em contato com você"
+        }
+    },
+    "botao": [{
+        "action": "/contratacao",
+        "text": "Quero comprar agora este plano"
+    },{
+        "action": "simulacao",
+        "text": "Quero receber uma proposta"
+    },{
+        "action": "sucessoLead",
+        "text": "Ver mais planos para você!"
+    },{
+        "action": "sucessoClient",
+        "text": "Ver mais planos para você!"
+    }]
+}

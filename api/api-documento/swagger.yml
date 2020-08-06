@@ -1,0 +1,121 @@
+swagger: '2.0'
+info:
+  description: 'Serviços de Contratação do E-commerce'
+  version: 1.0.0
+  title: 'E-commerce: Contratação'
+host: 'devawsap03:8082'
+schemes:
+  - http
+definitions:
+  pessoa:
+    type: object
+    properties:
+      cpf:
+        type: string
+      nome:
+        type: string
+      email:
+        type: string
+      datanascimento:
+        type: string
+        format: date
+  dependentes:
+    type: object
+    properties:
+      id_simulacao:
+        type: integer
+        example: 15045
+      datanascimento:
+        type: array
+        items:
+          type: string
+          format: date
+        example: ['2019-07-01','2010-05-03','1970-07-30']   
+parameters:
+  cpf:
+    name: cpf
+    in: path
+    description: CPF da pessoa
+    type: string
+    required: true        
+
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: X-Gravitee-Api-Key
+    in: header
+    description: 'Token de acesso à API'
+    
+security: 
+ - api_key: []
+
+paths:
+  /pessoa:
+    post:
+      summary: Cria nova pessoa
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: pessoa
+          required: true
+          schema:
+            $ref: '#/definitions/pessoa'
+      responses:
+        '201':
+          description: 'Pessoa incluída com sucesso.' 
+        '400':
+          description: 'Pessoa existente com o CPF informado.'      
+    put:
+      summary: Altera uma pessoa existente
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: pessoa
+          required: true
+          schema:
+            $ref: '#/definitions/pessoa'
+      responses:
+        '201':
+          description: 'Pessoa alterada com sucesso.' 
+        '404':
+          description: 'CPF informado não foi localizado.'
+  /pessoa/{cpf}:
+    get:
+      summary: 'Consulta pessoa pelo CPF'
+      consumes:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/cpf'
+      responses:
+        '200':
+          description: 'Pessoa pesquisada.'
+          schema:
+           $ref: '#/definitions/pessoa'
+        '404':
+          description: 'CPF informado não foi localizado.'        
+    delete:
+      summary: 'Desativa pessoa pelo CPF'
+      consumes:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/cpf'      
+      responses:
+        '200':
+          description: 'Pessoa desativada com sucesso.'
+        '404':
+          description: 'CPF informado não foi localizado.' 
+  /pessoa/dependente:
+    post:
+      summary: 'Cria Dependentes por Simulação' 
+      consumes:
+        - application/json
+      responses:
+        201:
+          description: 'Dependente(s) incluído(s) com sucesso.'
+        400:
+          description: 'Não foi possível inserir despente com os parâmetros informados.'
+          schema:
+           $ref: '#/definitions/dependentes'
+    

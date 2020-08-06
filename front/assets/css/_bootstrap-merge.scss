@@ -1,0 +1,48 @@
+.btn-primary,
+.btn-primary:focus {
+  background-color: var(--quali-brand);
+}
+
+.btn-outline-primary {
+  color: var(--quali-brand);
+  border-color: var(--quali-brand);
+
+  &:hover,
+  &:focus {
+    @extend .btn-primary__dark;
+  }
+}
+
+.btn-outline-primary__dark {
+  color: var(--quali-dark-blue);
+  border-color: var(--quali-dark-blue);
+
+  &:focus {
+    color: var(--quali-dark-blue);
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: var(--quali-dark-blue);
+  }
+}
+
+.btn-primary__dark {
+  background-color: var(--quali-dark-blue);
+  border-color: var(--quali-dark-blue);
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    background-color: var(--quali-dark-blue);
+  }
+}
+
+.btn-outline-secondary.btn-active {
+  @extend .btn-outline-primary;
+}
+
+.form-control .vs__dropdown-toggle {
+  border: none;
+  padding: 0;
+}

@@ -1,0 +1,44 @@
+swagger: '2.0'
+info:
+  description: 'API para Pagamento'
+  version: 1.0.0
+  title: 'E-commerce: Pagamento'
+host: 'devawsap03:8082'
+schemes:
+  - http
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: X-Gravitee-Api-Key
+    in: header
+    description: 'Token de acesso à API'
+    
+security: 
+ - api_key: []
+
+paths:
+  /pagamento/formas:
+    get:
+      summary: Lista de formas de pagamento
+      responses:
+        '200':
+          description: "Lista de formas de pagamento"
+          schema:
+            type: "array"
+            items:
+              type: object
+              properties:
+                forma:
+                  type: string
+                  example: "Boleto"
+                bancos:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      CODIGO:
+                        type: string
+                        example: "Banco do Brasil"
+                      IDBANCO:
+                        type: integer
+                        example: 1

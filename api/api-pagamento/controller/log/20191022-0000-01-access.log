@@ -1,0 +1,3 @@
+"-";"::1";"-";"[2019-10-22T17:17:24.232Z]";"GET";"/pagamento/formas";"HTTP/1.1";"200";"362";"-";"PostmanRuntime/7.18.0";"-";"-";"
+"-";"::1";"-";"[2019-10-22T17:45:28.208Z]";"GET";"/pagamento/formas";"HTTP/1.1";"200";"362";"http://localhost:8080/";"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36";"-";"-";"
+"-";"::1";"-";"[2019-10-22T17:45:28.421Z]";"GET";"/pagamento/consultar/_dhbsp0vy4";"HTTP/1.1";"201";"40";"http://localhost:8080/";"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36";"-";"-";"

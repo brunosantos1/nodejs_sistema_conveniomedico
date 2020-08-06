@@ -1,0 +1,143 @@
+{
+    "maiorIdadeComDependente": {
+        "titulo": "Quando o titular for maior de idade com dependentes",
+        "etapas": [
+            {
+                "sequencia": 1,
+                "formularios": [
+                    {
+                        "titulo": "Informações pessoais",
+                        "model": "dadosPessoaisTitular"
+                    }
+                ]
+            },
+            {
+                "sequencia": 2,
+                "formularios": [
+                    {
+                        "titulo": "Informações complementares",
+                        "model": "dadosComplementaresTitular"
+                    },
+                    {
+                        "titulo": "Endereço",
+                        "model": "dadosEnderecoTitular"
+                    }
+                ]
+            },
+            {
+                "sequencia": 3,
+                "lista":{
+                    "titulo": "Dependentes",
+                    "model":"dadosDependente",
+                    "dataSource":{
+                        "stateName": "listaDependentes"
+                    }
+                }
+            }
+        ]
+    },
+    "maiorIdadeSemDependente": {
+        "titulo": "Quando o titular for maior de idade sem dependentes",
+        "etapas": [
+            {
+                "sequencia": 1,
+                "formularios": [
+                    {
+                        "titulo": "Informações pessoais",
+                        "model": "dadosPessoaisTitular"
+                    }
+                ]
+            },
+            {
+                "sequencia": 2,
+                "formularios": [
+                    {
+                        "titulo": "Informações complementares",
+                        "model": "dadosComplementaresTitular"
+                    },
+                    {
+                        "titulo": "Endereço",
+                        "model": "dadosEnderecoTitular"
+                    }
+                ]
+            },
+            {
+                "sequencia": 3,
+                "formularios": [
+                    {
+                        "titulo": "Endereço",
+                        "model": "dadosEnderecoTitular"
+                    }
+                ]
+            }
+        ]
+    },
+    "menorIdade": {
+        "titulo": "Quando o titular for menor de idade e não emancipado",
+        "etapas": [
+            {
+                "sequencia": 1,
+                "formularios": [
+                    {
+                        "titulo": "Informações pessoais",
+                        "model": "dadosPessoaisTitular"
+                    }
+                ]
+            },
+            {
+                "sequencia": 2,
+                "formularios": [
+                    {
+                        "titulo": "Representante legal",
+                        "model": "dadosRepresentanteLegal"
+                    }
+                ]
+            }
+        ]
+    },
+    "menorIdadeEmancipado": {
+        "titulo": "Quando o titular for menor de idade e emancipado",
+        "etapas": [
+            {
+                "sequencia": 1,
+                "formularios": [
+                    {
+                        "titulo": "Informações pessoais",
+                        "model": "dadosPessoaisTitular"
+                    }
+                ]
+            },
+            {
+                "sequencia": 2,
+                "formularios": [
+                    {
+                        "titulo": "Informações complementares",
+                        "model": "dadosComplementaresTitular"
+                    },
+                    {
+                        "titulo": "Endereço",
+                        "model": "dadosEnderecoTitular"
+                    }
+                ]
+            },
+            {
+                "sequencia": 3,
+                "formularios": [
+                    {
+                        "titulo": "Endereço",
+                        "model": "dadosEnderecoTitular"
+                    }
+                ]
+            },
+            {
+                "sequencia": 4,
+                "formularios": [
+                    {
+                        "titulo": "Informações do dependente",
+                        "model": "dadosEnderecoTitular"
+                    }
+                ]
+            }
+        ]
+    }
+}

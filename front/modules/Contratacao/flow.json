@@ -1,0 +1,123 @@
+{
+    "maiorIdade": {
+        "titulo": "Quando o titular for maior de idade com dependentes",
+        "etapas": [
+            {
+                "sequencia": 1,
+                "formularios": [
+                    {
+                        "titulo": "Informações pessoais",
+                        "model": "dadosPessoaisTitular"
+                    },
+                    {
+                        "titulo": "Informações complementares",
+                        "model": "dadosComplementares"
+                    },
+                    {
+                        "titulo": "Endereço Residencial",
+                        "model": "dadosEndereco"
+                    },
+                    {
+                        "titulo": "Endereço de Correspondência",
+                        "model": "dadosEnderecoComercial",
+                        "descricao": "Adicionar endereço de correspondência",
+                        "optionalForm": true,
+                        "parentModel": "dadosEndereco"
+                    },
+                    {
+                        "titulo": "Informações profissionais",
+                        "model": "dadosProfissionais"
+                    },
+                    {
+                        "titulo": "Informações adicionais",
+                        "model": "dadosPossuiPlano"
+                    }
+                ]
+            },
+            {
+                "sequencia": 2,
+                "template": "dependente",
+                "formularios": [
+                    {
+                        "titulo": "Informações pessoais",
+                        "model": "dadosDependente"
+                    }
+                ]
+            },
+            {
+                "sequencia": 3,
+                "redirecionamento": {
+                    "name": "Filiacao"
+                }
+            }
+        ]
+    },
+    "menorIdade": {
+        "titulo": "Quando o titular for menor de idade",
+        "etapas": [
+            {
+                "sequencia": 1,
+                "formularios": [
+                    {
+                        "titulo": "Informações pessoais",
+                        "model": "dadosPessoaisMenor"
+                    },
+                    {
+                        "titulo": "Informações complementares",
+                        "model": "dadosComplementares"
+                    },
+                    {
+                        "titulo": "Endereço Residencial",
+                        "model": "dadosEndereco"
+                    },
+                    {
+                        "titulo": "Endereço de Correspondência",
+                        "model": "dadosEnderecoComercial",
+                        "descricao": "Adicionar endereço de correspondência",
+                        "optionalForm": true,
+                        "parentModel": "dadosEndereco"
+                    },
+                    {
+                        "titulo": "Informações profissionais",
+                        "model": "dadosProfissionais"
+                    },
+                    {
+                        "titulo": "Informações adicionais",
+                        "model": "dadosPossuiPlano"
+                    }
+                ]
+            },
+            {
+                "sequencia": 2,
+                "condicao": [
+                    {
+                        "name": "emancipado",
+                        "value": false
+                    }
+                ],
+                "formularios": [
+                    {
+                        "titulo": "Representante legal",
+                        "model": "dadosRepresentanteLegal"
+                    }
+                ]
+            },
+            {
+                "sequencia": 3,
+                "template": "dependente",
+                "formularios": [
+                    {
+                        "titulo": "Informações pessoais",
+                        "model": "dadosDependente"
+                    }
+                ]
+            },
+            {
+                "sequencia": 4,
+                "redirecionamento": {
+                    "name": "Filiacao"
+                }
+            }
+        ]
+    }
+}

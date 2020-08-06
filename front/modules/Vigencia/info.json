@@ -1,0 +1,24 @@
+{
+    "title" : "Vigência",
+    "informativo" : "...",
+    "observacao" : "A data de vigência que você definir vai representar o início da validade do seu plano assim como a data de pagamento das mensalidades, bem como, eventuais reajustes de acordo com a data escolhida.",
+    "vigencia" : {
+        "mensagemData" : "Escolha a data de vigência",
+        "informativo" : "...",
+        "escolhida" : "De acordo com a vigência escolhida, o valor do seu plano terá os seguintes acrescimos:"
+    }, 
+    "reajuste" : {
+        "faixa" : {
+            "mensagem" : "Reajuste por faixa etária",
+            "informativo" : "..."
+        },
+        "anual" : {
+            "mensagem" : "Reajuste anual" ,
+            "informativo" : "..."
+        }
+    },
+    "verDetalhes" : "ver detalhes",
+    "voltar" : "Voltar ao passo anterior",
+    "confirmar" : "Confirmar",
+    "total" : "Total"
+}

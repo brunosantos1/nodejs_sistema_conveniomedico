@@ -1,0 +1,131 @@
+{
+    "dadosColeta": {
+        "nome": "Denisson Carvalho",
+        "nascimento": "30/11/1994",
+        "cpf": "438.975.378-93",
+        "cep": "05884-070",
+        "profissao": "Estudante",
+        "entidade": "UBE",
+        "dependente": "individual",
+        "dependentes": [
+            {
+                "id":1,
+                "value":"30/03/1998"
+            },
+            {
+                "id":2,
+                "value":"07/02/1983"
+            }
+        ],
+        "valor": [
+            1,
+            3750
+        ],
+        "email": "dew@gmail.com",
+        "telefone": "(99) 99999-9999",
+        "estado": "SP",
+        "cidade": "São Paulo",
+        "listaEntidades": [
+            {
+                "NomeFantasia": "SENGE-MG",
+                "RazaoSocial": "Sindicato de Engenheiros no Estado de Minas Gerais"
+            },
+            {
+                "NomeFantasia": "SINBIESP",
+                "RazaoSocial": "Sindicato dos Biomedicos Profissionais do Estado de Sao Paulo"
+            },
+            {
+                "NomeFantasia": "SINDICONTA-BA",
+                "RazaoSocial": "Sindicato dos Contabilistas do Estado da Bahia"
+            },
+            {
+                "NomeFantasia": "APCD",
+                "RazaoSocial": "Associacao Paulista de CirurgioesDentistas"
+            },
+            {
+                "NomeFantasia": "SAESP",
+                "RazaoSocial": "Sindicato dos Administradores no Estado de Sao Paulo"
+            },
+            {
+                "NomeFantasia": "ABO-ES",
+                "RazaoSocial": "Associacao Brasileira de Odontologia  Secao Espirito Santo"
+            },
+            {
+                "NomeFantasia": "UBES",
+                "RazaoSocial": "Uniao Brasileira dos Estudantes Secundaristas "
+            },
+            {
+                "NomeFantasia": "SJSP",
+                "RazaoSocial": "Sindicato dos Jornalistas Profissionais no Estado de Sao Paulo"
+            },
+            {
+                "NomeFantasia": "CORECON-PA",
+                "RazaoSocial": "Conselho Regional de Economia  9ª Regiao  Para  Corecon  PA"
+            },
+            {
+                "NomeFantasia": "SEESP (Engenheiros)",
+                "RazaoSocial": "Sindicato dos Engenheiros no Estado de Sao Paulo"
+            },
+            {
+                "NomeFantasia": "ABM",
+                "RazaoSocial": "Associacao Bahiana de Medicina"
+            },
+            {
+                "NomeFantasia": "SINDCONT-SP",
+                "RazaoSocial": "Sindicato dos Contabilistas de Sao Paulo"
+            },
+            {
+                "NomeFantasia": "APM",
+                "RazaoSocial": "Associacao Paulista de Medicina"
+            },
+            {
+                "NomeFantasia": "ABO-BA",
+                "RazaoSocial": "Associacao Brasileira de Odontologia  Secao Bahia"
+            },
+            {
+                "NomeFantasia": "SINDICONTA-DF",
+                "RazaoSocial": "Sindicato dos Contabilistas de Brasilia"
+            },
+            {
+                "NomeFantasia": "FNE",
+                "RazaoSocial": "Federacao Nacional dos Estudantes"
+            },
+            {
+                "NomeFantasia": "UBE",
+                "RazaoSocial": "Uniao Brasileira dos Estudantes "
+            },
+            {
+                "NomeFantasia": "CORECON-MG",
+                "RazaoSocial": "Conselho Regional de Economia – 10ª Regiao – Minas Gerais"
+            },
+            {
+                "NomeFantasia": "UNE",
+                "RazaoSocial": "Uniao Nacional dos Estudantes \r\n"
+            },
+            {
+                "NomeFantasia": "SAEMG",
+                "RazaoSocial": "Sindicato dos Administradores no Estado de Minas Gerais"
+            },
+            {
+                "NomeFantasia": "CAA_ES",
+                "RazaoSocial": "Caixa de Assistencia dos Advogados do Espirito Santo"
+            },
+            {
+                "NomeFantasia": "CORECON-PE",
+                "RazaoSocial": "Conselho Regional de Economia  3ª Regiao   Pernambuco"
+            },
+            {
+                "NomeFantasia": "SARJ",
+                "RazaoSocial": "Sindicato dos Advogados do Estado do Rio de Janeiro"
+            },
+            {
+                "NomeFantasia": "CORECON-SP",
+                "RazaoSocial": "Conselho Regional de Economia – 2ª Regiao – Sao Paulo"
+            }
+        ],
+        "optin": true,
+        "pessoas": [
+            "1994-11-30"
+        ]
+    }
+}

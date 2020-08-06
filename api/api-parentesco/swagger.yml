@@ -1,0 +1,48 @@
+swagger: '2.0'
+info:
+  description: 'API para listar a relação de grau de parentesco'
+  version: 1.0.0
+  title: 'E-commerce: Grau de Parentesco'
+host: 'devawsap03:8082'
+schemes:
+  - http
+definitions:
+  parentesco:
+    type: array
+    items:
+      type: object
+      properties:
+        descricao:
+          type: string
+          example: "Titular"
+        IdGParentesco:
+          type: number
+          example: 0
+
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: X-Gravitee-Api-Key
+    in: header
+    description: 'Token de acesso à API'
+    
+security: 
+ - api_key: []
+
+paths:
+  /parentesco/{idplano_sinf}:
+    get:
+      summary: 'Lista de graus de parentesco por plano'
+      parameters: 
+        - in: path
+          name: 'idplano_sinf'
+          type: integer
+          required: true
+          description: "Id Plano do sistema SINF, retornado na API de Planos"
+      responses:
+        '200':
+          description: 'Lista de graus de parentesco.' 
+        '404':
+          description: 'Não existe grau de parentesco para a requisição realizada.' 
+          schema:
+           $ref: '#/definitions/parentesco'

@@ -1,0 +1,26 @@
+{
+  "name": "api-controle-acesso",
+  "description": "API de Controle de Acesso de Usuários",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": {
+    "name": ""
+  },
+  "scripts": {
+    "pm2": "pm2 start ./index.js --name api-controle-acesso -i 1"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "circular-json": "^0.5.9",
+    "fs": "0.0.1-security",
+    "morgan": "^1.9.1",
+    "neo4j-driver": "^1.7.3",
+    "node-windows": "^0.1.14",
+    "path": "^0.12.7",
+    "request": "^2.88.0",
+    "restify": "7.0.0",
+    "restify-cors-middleware": "^1.1.1",
+    "rotating-file-stream": "^1.4.0",
+    "xml2js": "^0.4.22"
+  }
+}

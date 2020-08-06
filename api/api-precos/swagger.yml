@@ -1,0 +1,140 @@
+swagger: "2.0"
+info:
+  description: "E-commerce: Serviço de Preços de Planos"
+  version: "1.0.0"
+  title: "E-commerce: Preços"
+  termsOfService: ""
+  contact:
+    email: "dev-qualitech@qualicorp.com.br"
+host: "DEVAWSAP03:8082"
+basePath: "/"
+schemes:
+- "http"
+security:
+- api_key: []
+paths:
+  /precoplano:
+    post:
+      summary: "Relação de preços por planos"
+      description: "Listagem de Preços por Planos"
+      operationId: "Inclui um endereço vinculado a um CPF"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "ParametrosConsulta"
+        required: true
+        schema:
+          $ref: "#/definitions/ParametrosConsulta"
+      responses:
+        200:
+          description: "Resultado da execução"
+          schema:
+            $ref: "#/definitions/precoplano"
+  /precoplano/reajuste:
+    post:
+      summary: "Lista de valores reajustados"
+      description: "E-commerce: Serviço de Listagem de Reajustes"
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: filtros
+          required: true
+          schema:
+            $ref: '#/definitions/parametros-reajuste'
+      responses:
+        200:
+          description: "Resultado da execução"
+          schema:
+            $ref: "#/definitions/retorno-reajuste"
+securityDefinitions:
+  api_key:
+    description: "Token de acesso à API"
+    type: "apiKey"
+    name: "X-Gravitee-Api-Key"
+    in: "header"
+definitions:
+  precoplano:
+    type: "object"
+    properties:
+      idplano:
+        type: "string"
+        example: "192540459"
+      precos:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            idade:
+              type: "string"
+              example: "15"
+            preco:
+              type: "number"
+              example: 349.99
+  ParametrosConsulta:
+    type: "object"
+    properties:
+      IdPlano:
+        type: "array"
+        items:
+          type: "number"
+          example: [192540459,192540459,192541009]
+      Idade:
+        type: "array"
+        items:
+          type: "number"
+          example: [15,35,41]
+  parametros-reajuste:
+    type: "object"
+    properties:
+      entidade:
+        type: "string"
+        example: "UBES"
+      datavigencia:
+        type: "string"
+        format: date
+        example: "2019-08-15"
+      datasimulacao:
+        type: "string"
+        format: date
+        example: "2019-06-30"  
+      datanascimento:
+        type: array
+        items:
+          type: string
+          format: date
+          example: "2000-07-14"
+      id:
+        type: number
+        example: 289353
+      idplano_sinf:
+        type: number
+        example: 192577768
+  retorno-reajuste:
+    type: array
+    items:
+      type: object
+      properties:
+        datanascimento:
+          type: "string"
+          format: date
+          example: "2010-10-01"
+        preco_vigencia:
+          type: "string"
+          example: "591.02"
+        preco_simulacao:
+          type: "string"
+          example: "410.50"  
+        reajuste_faixa:
+          type: "string"
+          example: "102.63"          
+        reajuste_anual:
+          type: "string"
+          example: "77.89"  
+        
+        
+        
+      

@@ -1,0 +1,79 @@
+swagger: '2.0'
+info:
+  description: 'API para pesquisa de Entidades de Classe'
+  version: 1.0.0
+  title: 'E-commerce: Entidade'
+host: 'devawsap03:8082'
+schemes:
+  - https
+  - http
+definitions:
+  entidades:
+    type: array
+    items:
+      type: object
+      properties:
+        descricao:
+          type: string
+parameters:
+  profissao:
+    name: profissao
+    in: path
+    description: Profissão do cliente
+    type: string
+    required: true
+  uf:
+    name: uf
+    in: path
+    description: UF do Estado informado
+    type: string
+    required: true
+  cidade:
+    name: cidade
+    in: path
+    description: Cidade informada
+    type: string
+    required: true  
+
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: X-Gravitee-Api-Key
+    in: header
+    description: 'Token de acesso à API'
+    
+security: 
+ - api_key: []
+
+paths:
+  /entidade:
+    get:
+      summary: Lista todas as entidades de classe
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: pessoa
+          required: true
+          schema:
+            $ref: '#/definitions/entidades'
+      responses:
+        '200':
+          description: 'Lista de entidades.' 
+          schema:
+           $ref: '#/definitions/entidades'
+
+  /entidade/{profissao}/{uf}/{cidade}:
+    get:
+      summary: 'Consulta de Entidades por Profissão, Estado e Cidade'
+      consumes:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/profissao'
+        - $ref: '#/parameters/uf'
+        - $ref: '#/parameters/cidade'
+      responses:
+        '200':
+          description: 'Lista de entidades por profissão'
+          schema:
+           $ref: '#/definitions/entidades'

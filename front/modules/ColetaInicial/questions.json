@@ -1,0 +1,125 @@
+[{
+  "name": "nome",
+  "validation": "required|nome",
+  "options": {
+    "attrs": {
+      "placeholder": "Nome completo",
+      "maxlength": 70
+    }
+  }
+},{
+  "name": "nascimento",
+  "validation": "required|date_format:dd/MM/yyyy|nascimento",
+  "options": {
+    "attrs": {
+      "placeholder": "DD/MM/AAAA",
+      "mask": "##/##/####"
+    }
+  }
+},{
+  "name": "cpf",
+  "validation": "required|cpf",
+  "options": {
+    "attrs": {
+      "placeholder": "000.000.000-00",
+      "maxlength": 14,
+      "mask": "###.###.###-##"
+    }
+  }
+},{
+  "name": "profissao",
+  "validation": "required",
+  "options": {
+    "datasource": {
+      "endpoint":"profissao",
+      "key": "b5351acc-07da-4e22-a70d-7b044083220f"
+    },
+    "attrs": {
+      "placeholder": "Clique aqui e pesquise sua profissão"
+    }
+  }
+},{
+  "name": "entidade",
+  "validation": "required",
+  "options": {
+    "datasource": {
+      "endpoint":"entidade",
+      "key": "44fe9810-e419-4e62-9696-d1ed7b80fc62"
+    },
+    "attrs": {
+      "placeholder": "Clique aqui e pesquise sua entidade"
+    }
+  }
+},{
+  "name": "cep",
+  "validation": "required|cep",
+  "options": {
+    "attrs": {
+      "placeholder": "00000-000",
+      "maxlength": 9,
+      "mask": "#####-###"
+    },
+    "datasource": {
+      "endpoint":"/endereco/Enderecos/",
+      "key": "a4a8f5f6-1971-4d32-8100-1b3a0bef09f1"
+    }
+  }
+},{
+  "name": "dependente",
+  "alias": "Tipo de Plano",
+  "validation": "required|dependenteValid",
+  "options": {
+    "attrs": {
+      "placeholder": "Selecione"
+    },
+    "choices": [{
+      "value": "individual",
+      "text": "Para Mim"
+    },{
+      "value": "familia",
+      "text": "Para minha família"
+    }]
+  }
+},
+{
+  "name": "dependentes",
+  "type": "repeatable",
+  "validation": "dependentesValid",
+  "options": {
+    "attrs": {
+      "repeatableFields": {
+        "bootstrapStyle": true,
+        "type": "text",
+        "mask": "##/##/####",
+        "limit": 8,
+        "placeholder": "DD/MM/AAAA",
+        "validation": "date_format:dd/MM/yyyy|nascimento"
+      }
+    }
+  }
+},{
+  "name": "valor",
+  "options": {
+    "attrs": {
+      "placeholder": "valor"
+    }
+  }
+},{
+  "name": "email",
+  "validation": "required|email|emailValid",
+  "options": {
+    "attrs": {
+      "placeholder": "usuario@email.com"
+    }
+  },
+  "terms": true
+},{
+  "name": "telefone",
+  "validation": "required|phoneValid|phone",
+  "options": {
+    "attrs": {
+      "placeholder": "(00) 0000-0000",
+      "mask": "(##) ####-####"
+    }
+  }
+}]

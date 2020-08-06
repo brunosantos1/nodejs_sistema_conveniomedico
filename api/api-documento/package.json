@@ -1,0 +1,32 @@
+{
+  "name": "api-documento",
+  "description": "E-commerce: Serviço de Documento",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": {
+    "name": "Denisson Carvalho"
+  },
+  "scripts": {
+    "pm2": "pm2 start ./index.js --name api-documento -i 1",
+    "dev": "nodemon --inspect index.js"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.515.0",
+    "axios": "^0.18.0",
+    "circular-json": "^0.5.5",
+    "delay": "^4.3.0",
+    "delete": "^1.1.0",
+    "fs": "0.0.1-security",
+    "morgan": "^1.9.0",
+    "neo4j-driver": "^1.7.3",
+    "node-windows": "^0.1.14",
+    "path": "^0.12.7",
+    "pm2": "^3.5.0",
+    "proxy-agent": "^3.1.0",
+    "restify": "7.0.0",
+    "restify-cors-middleware": "^1.1.1",
+    "restify-https": "0.0.3",
+    "rotating-file-stream": "^1.4.0",
+    "save-file": "^2.3.1"
+  }
+}

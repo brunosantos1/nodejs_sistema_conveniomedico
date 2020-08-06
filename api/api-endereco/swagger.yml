@@ -1,0 +1,187 @@
+---
+swagger: "2.0"
+info:
+  description: "E-commerce: Serviço de Endereços e Localidades"
+  version: "1.0.0"
+  title: "E-commerce: Endereços"
+  termsOfService: ""
+  contact:
+    email: "dev-qualitech@qualicorp.com.br"
+host: "DEVAWSAP03:8082"
+basePath: "/"
+schemes:
+- "http"
+security:
+- api_key: []
+paths:
+  /endereco/Estados:
+    get:
+      summary: "E-commerce: Serviço de Listagem de Estados"
+      description: "E-commerce: Serviço de Listagem de Estados"
+      operationId: "Estados"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Lista todos as Unidades Federativas do Brasil"
+          schema:
+            $ref: "#/definitions/Estados"
+  /endereco/Municipio/{uf}:
+    get:
+      summary: "E-commerce: Serviço de Listagem de Municípios por Estado"
+      description: "E-commerce: Serviço de Listagem de Municípios por Estado"
+      operationId: "ConsultarCidadesPorEstado"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "uf"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Lista todos as Cidades do Estado informado"
+          schema:
+            $ref: "#/definitions/Municipio"
+  /endereco/Enderecos/{cep}:
+    get:
+      summary: "E-commerce: Retorna o endereço do CEP informado"
+      description: "E-commerce: Retorna o endereço do CEP informado"
+      operationId: "ConsultarEndereco"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "cep"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Dados do CEP informado"
+          schema:
+            $ref: "#/definitions/Enderecos"
+  /endereco:
+    post:
+      summary: "E-commerce: Incluir endereço vinculando com um CPF"
+      description: "E-commerce: Incluir endereço vinculando com um CPF"
+      operationId: "Inclui um endereço vinculado a um CPF"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "ParametrosInclusao"
+        required: true
+        schema:
+          $ref: "#/definitions/ParametrosInclusao"
+      responses:
+        200:
+          description: "Resultado da execução"
+          schema:
+            $ref: "#/definitions/Incluir"
+securityDefinitions:
+  api_key:
+    description: "Token de acesso à API"
+    type: "apiKey"
+    name: "X-Gravitee-Api-Key"
+    in: "header"
+definitions:
+  Estados:
+    type: "object"
+    properties:
+      Estados:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            Estado:
+              type: "string"
+              example: "São Paulo"
+            Sigla:
+              type: "string"
+              example: "SP"
+  Municipio:
+    type: "object"
+    properties:
+      Cidades:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            Cidade:
+              type: "string"
+              example: "São Paulo"
+            Estado:
+              type: "string"
+              example: "SP"
+  Enderecos:
+    type: "object"
+    properties:
+      ESTADO_SIGLA:
+        type: "string"
+        example: "SP"
+      CIDADE_ABREV:
+        type: "string"
+        example: "S Paulo"
+      TIPO_ENDERECO:
+        type: "string"
+        example: "Avenida"
+      ENDERECO_ABREV:
+        type: "string"
+        example: "Av Paulista"
+      ENDERECO_NOME:
+        type: "string"
+        example: "Paulista"
+      ESTADO_NOME:
+        type: "string"
+        example: "São Paulo"
+      BAIRRO_NOME:
+        type: "string"
+        example: "Bela Vista"
+      CEP:
+        type: "string"
+        example: "01311000"
+      BAIRRO_ABREV:
+        type: "string"
+        example: "B Vista"
+      CIDADE_NOME:
+        type: "string"
+        example: "São Paulo"
+  Incluir:
+    type: "string"
+    example: "Endereço cadastrado com sucesso! / Endereço não cadastrado!"
+  ParametrosInclusao:
+    type: "object"
+    properties:
+      CEP:
+        type: "string"
+        example: "01311000"
+      TipoEndereco:
+        type: "string"
+        example: "Avenida"
+      Endereco:
+        type: "string"
+        example: "Paulista"
+      EnderecoAbreviado:
+        type: "string"
+        example: "Av Paulista"
+      Numero:
+        type: "string"
+        example: "9999"
+      Complemento:
+        type: "string"
+        example: "Prédio"
+      Bairro:
+        type: "string"
+        example: "Bela Vista"
+      BairroAbrev:
+        type: "string"
+        example: "B Vista"
+      Cidade:
+        type: "string"
+        example: "São Paulo"
+      Estado:
+        type: "string"
+        example: "SP"
+      CPF:
+        type: "string"
+        example: "999.999.999-99"

@@ -1,0 +1,93 @@
+.fixHeader {
+  position: fixed !important;
+  z-index: 11;
+
+  // transition: all .3s ease-in-out;
+  
+  &.site--header {
+    left: 0;
+    top: 0;
+    width: 100%;
+
+    // transform: translateY(0);
+
+    &~.planos-container {
+      padding-top: 130px;
+    }
+  }
+
+  &.btn-options {
+    padding-bottom: 1em;
+    padding-top: 1em;
+    z-index: 10;
+
+    background-color: #fff;
+    box-shadow: 2px 3px 5px rgba(216, 216, 216, 0.504152);
+    transform: translateY(60px);
+  }
+}
+
+/**
+ * Páginas Especificas
+ */
+
+.comparacao-wrapper {
+  .fixHeader {
+    &.card-title {
+      top: 60px;
+      width: 50%;
+
+      background-color: #fff;
+
+      &.fixHeader-0 {
+        left: 0;
+      }
+
+      &.fixHeader-1 {
+        right: 0;
+      }
+    }
+
+    &.btn {
+      top: 106px;
+      width: 49.8%;
+
+      border-radius: 0;
+
+      &.fixHeader-0 {
+        left: 0;
+      }
+
+      &.fixHeader-1 {
+        right: 0;
+      }
+    }
+
+    &.site--header {
+      // height: 150px;
+    }
+  }
+}
+
+.planos-wrapper {
+  .fixHeader {
+    &.btn-options {
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+  }
+}
+
+.detalhe-wrapper {
+  #btnDesktop.fixHeader,
+  #btnDesktopHeader.fixHeader {
+    position: static !important;
+  }
+}
+
+.headerFixed {
+  #btnDesktopHeader {
+    opacity: 1; 
+  }
+}

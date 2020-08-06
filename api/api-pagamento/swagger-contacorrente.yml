@@ -1,0 +1,49 @@
+swagger: '2.0'
+info:
+  description: 'Serviço de validação de Conta Corrente'
+  version: 1.0.0
+  title: 'E-commerce: Validação de Conta Corrente'
+host: 'devawsap03:8082'
+schemes:
+  - http
+      
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: X-Gravitee-Api-Key
+    in: header
+    description: 'Token de acesso à API'
+    
+security: 
+ - api_key: []
+ 
+definitions:
+  retorno:
+    type: string
+    example: "true"
+paths:
+  /contacorrente/{codigo_banco}/{agencia}/{conta}/:
+    post:
+      summary: 'Retorna True se a conta estiver válida'
+      parameters: 
+        - in: path
+          name: 'codigo_banco'
+          type: integer
+          required: true
+          description: "Código do banco (Somente números)"
+        - in: path  
+          name: 'agencia'
+          type: integer
+          required: true
+          description: "Código da Agência (Somente números)"
+        - in: path  
+          name: 'conta'
+          type: integer
+          required: true
+          description: "Código da Conta Corrente (Somente números)"  
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            $ref: '#/definitions/retorno'  
+    

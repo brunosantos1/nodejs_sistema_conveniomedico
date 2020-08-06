@@ -1,0 +1,60 @@
+swagger: '2.0'
+info:
+  description: 'API para pesquisa de Profissões do Clientes'
+  version: 1.0.0
+  title: 'E-commerce: Profissão'
+host: 'devawsap03:8082'
+schemes:
+  - http
+definitions:
+  profissao:
+    type: object
+    properties:
+      profissao:
+        type: string
+        example: "Advogado"
+parameters:
+  uf:
+    name: uf
+    in: path
+    description: UF do Estado informado
+    type: string
+    required: true
+  cidade:
+    name: cidade
+    in: path
+    description: Cidade informada
+    type: string
+    required: true  
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: X-Gravitee-Api-Key
+    in: header
+    description: 'Token de acesso à API'
+security: 
+ - api_key: []
+paths:
+  /profissao:
+    get:
+      summary: Lista de profissões
+      responses:
+        '200':
+          description: "Lista de profissões"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/profissao"
+  /profissao/{uf}/{cidade}:
+    get:
+      summary: 'ConsultaLista de Profissões por Estado e Cidade'
+      consumes:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/uf'
+        - $ref: '#/parameters/cidade'
+      responses:
+        '200':
+          description: 'Lista de Profissões por Estado e Cidade'
+          schema:
+           $ref: '#/definitions/profissao'

@@ -1,0 +1,186 @@
+---
+swagger: "2.0"
+info:
+  description: "E-commerce: Serviço de manipulação das DPS (Declaração Pessoal de Saúde)"
+  version: "1.0.0"
+  title: "E-commerce: DPS (Declaração Pessoal de Saúde)"
+  termsOfService: ""
+  contact:
+    email: "dev-qualitech@qualicorp.com.br"
+host: "DEVAWSAP03:8082"
+basePath: "/" 
+schemes:
+- "http"
+security:
+- api_key: []
+paths:
+  /dps/{NumeroProposta}:
+    get:
+      summary: "E-commerce: Serviço de Consulta de DPS por número da Proposta"
+      description: "E-commerce: Serviço de Consulta de DPS por número da Proposta"
+      operationId: "ConsultarQuestionario"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "NumeroProposta"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Resultado da execução"
+          schema:
+            $ref: "#/definitions/DPS"
+        400:
+          description: "Mensagem de Erro"
+          schema:
+            $ref: "#/definitions/Mensagem"
+        404:
+          description: "Mensagem de Erro"
+          schema:
+            $ref: "#/definitions/Mensagem"
+  /dps:
+    put:
+      summary: "E-commerce: Serviço de Alteração da DPS"
+      description: "E-commerce: Serviço de Alteração da DPS"
+      operationId: "AtualizarDPS"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "JSON de Questionário atualizado"
+        required: true
+        schema:
+          $ref: "#/definitions/AtualizarDPS"
+      responses:
+        200:
+          description: "Resultado da execução"
+          schema:
+            $ref: "#/definitions/Mensagem"
+        400:
+          description: "Resultado da execução"
+          schema:
+            $ref: "#/definitions/Mensagem"
+  /dps/:
+    post:
+      summary: "E-commerce: Serviço de Validação da DPS"
+      description: "E-commerce: Serviço de Validação da DPS"
+      operationId: "ValidarDpsProposta"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "Número da Proposta"
+        required: true
+        schema:
+          $ref: "#/definitions/Validacao"
+      responses:
+        200:
+          description: "Resultado da execução"
+          schema:
+            $ref: "#/definitions/MensagemValidacao"
+        400:
+          description: "Resultado da execução"
+          schema:
+            $ref: "#/definitions/MensagemValidacao"
+securityDefinitions:
+  api_key:
+    description: "Token de acesso à API"
+    type: "apiKey"
+    name: "X-Gravitee-Api-Key"
+    in: "header"
+definitions:
+  DPS:
+    type: "array"
+    items:
+      type: "object"
+      properties:
+        Resposta:
+          type: "string"
+          example: "SIM ou NÃO ou 70 ou 1.60"
+        TipoResposta:
+          type: "string"
+          example: "sim/não ou numerico ou decimal"
+        Ordem:
+          type: "number"
+          example: 1
+        CodigoPergunta:
+          type: "number"
+          example: 1540
+        Especificacoes:
+          type: "string"
+          example: ""
+        Pergunta:
+          type: "string"
+          example: "Doenças do aparelho cardiocirculatório (hipertensão, angina, infarto, derrames, arritmias cardíacas, entre outras)?"
+        CodigoQuestionario:
+          type: "number"
+          example: 52
+        DataEvento:
+          type: "string"
+          example: "2019-10-02  (Data do evento quando houver especificação)"
+  AtualizarDPS:
+    type: "object"
+    properties:
+      idPessoa:
+        type: "number"
+        example: "54546"
+      NumeroProposta:
+        type: "string"
+        example: "_6bv02os8e"
+      titular:
+        type: "boolean"
+        example: "true / false"
+      TipoDPS:
+        type: "string"
+        example: "DpsOnline / DpsOperadora / DpsParticular"
+      DPS:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            Resposta:
+              type: "string"
+              example: "SIM ou NÃO ou 70 ou 1.60"
+            TipoResposta:
+              type: "string"
+              example: "sim/não ou numerico ou decimal"
+            Ordem:
+              type: "number"
+              example: 1
+            CodigoPergunta:
+              type: "number"
+              example: 1540
+            Especificacoes:
+              type: "string"
+              example: ""
+            Pergunta:
+              type: "string"
+              example: "Doenças do aparelho cardiocirculatório (hipertensão, angina, infarto, derrames, arritmias cardíacas, entre outras)?"
+            CodigoQuestionario:
+              type: "number"
+              example: 52
+            DataEvento:
+              type: "string"
+              example: "2019-10-02  (Data do evento quando houver especificação)"
+  Mensagem:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "Mensagem de Retorno da API"
+  Validacao:
+    type: "object"
+    properties:
+      NumeroProposta:
+        type: "string"
+        example: "54416161"
+  MensagemValidacao:
+    type: "object"
+    properties:
+      validacao:
+        type: "boolean"
+        example: "true / false"
+      message:
+        type: "string"
+        example: "Mensagem de Retorno da API"

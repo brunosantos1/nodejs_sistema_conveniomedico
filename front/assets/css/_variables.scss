@@ -1,0 +1,42 @@
+/**
+ * SASS variables
+ * 
+ */
+
+$quali-brand: #004071;
+$quali-footer: #F9F9F9;
+$quali-dark-blue: #005883;
+$quali-medium-blue: #0084B5;
+$quali-blue: #00a0db;
+$quali-light-blue: #16C1F3;
+$quali-gray-blue: #EDF3F5;
+$quali-yellow: #FCAF17;
+$quali-dark-x-gray: #333333;
+$quali-dark-gray: #4D4D4D;
+$quali-medium-gray: #757575;
+$quali-light-gray: #D8D8D8;
+$quali-light-x-gray: #F6F5F5;
+
+/**
+ * CSS Variables
+ *
+ * A intenção é deixar o layout
+ * com essas variáveis para uma futura
+ * modificação de temas que pode acontecer
+ */
+
+:root {
+  --quali-brand: #{$quali-brand};
+  --quali-footer: #{$quali-footer};
+  --quali-dark-blue: #{$quali-dark-blue};
+  --quali-medium-blue: #{$quali-medium-blue};
+  --quali-blue: #{$quali-blue};
+  --quali-light-blue: #{$quali-light-blue};
+  --quali-gray-blue: #{$quali-gray-blue};
+  --quali-yellow: #{$quali-yellow};
+  --quali-dark-x-gray: #{$quali-dark-x-gray};
+  --quali-dark-gray: #{$quali-dark-gray};
+  --quali-medium-gray: #{$quali-medium-gray};
+  --quali-light-gray: #{$quali-light-gray};
+  --quali-light-x-gray: #{$quali-light-x-gray};
+}

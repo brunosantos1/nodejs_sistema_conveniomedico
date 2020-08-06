@@ -1,0 +1,143 @@
+swagger: "2.0"
+info:
+  description: "APi para realizar as parametrizações das telas do Ecommerce."
+  version: "1.0.0"
+  title: "API Parametrização de Telas"
+  contact:
+    email: "celuladigital@qualicorp.com.br"
+host: "devawsap03:8082"
+tags:
+- name: "parametriza-tela"
+  description: "`Parametrização de Tela"
+schemes:
+- "https"
+- "http"
+paths:
+  /parametriza-tela:
+    get:
+      tags:
+      - "parametriza-tela"
+      summary: "Busca Perguntas cadastradas"
+      description: "Realiza a busca das perguntas cadastradas. É possível realizar a busca por parametro passando qualquer propriedade do nó e seu valor. Se a busca for realizada sem parametros o serviço retorna todas as perguntas cadastrads. "
+      operationId: "BuscaPerguntas"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "propriedade"
+        in: "query"
+        description: "A propriedade do nó."
+        required: false
+        type: "string"
+      - name: "valor"
+        in: "query"
+        description: "O valor do nó."
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: ""
+          schema:
+            $ref: "#/definitions/Perguntas"
+        400:
+          description: "Error Message"
+        404:
+          description: "Nenhuma parametrização encontrada."
+    put:
+      tags:
+      - "parametriza-tela"
+      summary: "Alteração de Pergunta"
+      description: "Realiza a alteração de qualquer pergunta existente. É possivel remover, modificar e incluir novas propridades ao nó da pergunta."
+      operationId: "AlterarPergunta"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Alterar Pergunta"
+        required: true
+        schema:
+          $ref: "#/definitions/Perguntas"
+      responses:
+        400:
+          description: "Alteração não realizada!"
+        404:
+          description: "Alteração não realizada!"
+    post:
+      tags:
+      - "parametriza-tela"
+      summary: "Criação de nova pergunta"
+      description: "Realiza a criação de nova pergunta."
+      operationId: "CriarPergunta"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Criar Pergunta"
+        required: true
+        schema:
+          $ref: "#/definitions/Perguntas"
+      responses:
+        200:
+          description: ""
+          schema:
+            $ref: "#/definitions/Perguntas"
+        404:
+          description: "Inclusão não realizada!"
+    delete:
+      tags:
+      - "parametriza-tela"
+      summary: "Deletar pergunta"
+      description: "Realiza a exclusão"
+      operationId: "deletarPergunta"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "body"
+        description: "The name that needs to be deleted"
+        required: true
+        schema:
+          type: "integer"
+      responses:
+        200:
+          description: "Deletado com sucesso!"
+        400:
+          description: "ID não encontrado!"
+        404:
+          description: "Por favor, informar o ID da Pergunta!"
+securityDefinitions:
+  petstore_auth:
+    type: "oauth2"
+    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
+    flow: "implicit"
+    scopes:
+      write:pets: "modify pets in your account"
+      read:pets: "read your pets"
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
+definitions:
+  Perguntas:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      Order:
+        type: "integer"
+        format: "int64"
+      description:
+        type: "string"
+      label:
+        type: "string"
+      title:
+        type: "string"
+      type:
+        type: "string"
+    xml:
+      name: "Order"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"

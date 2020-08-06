@@ -1,0 +1,56 @@
+swagger: "2.0"
+info:
+  description: "API para listar os Sexos cadastrados na base de dados."
+  version: "1.0.0"
+  title: "Tipo Sexo"
+  contact:
+    email: "celuladigital@qualicorp.com.br"
+host: "DEVAWSAP03:8082"
+basePath: "/"
+schemes:
+- "http"
+paths:
+  /tipos-sexo:
+    get:
+      tags:
+      - "Tipo Sexo"
+      summary: "Busca Tipo Sexo"
+      description: "Busca os sexos cadastrados na base Neo4j"
+      operationId: "BuscaTipoSexo"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/TipoSexo"
+        400:
+          description: "Invalid status value"
+securityDefinitions:
+  api_key:
+    description: "Token de acesso à API"
+    type: "apiKey"
+    name: "X-Gravitee-Api-Key"
+    in: "header"
+definitions:
+  TipoSexo:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "Sexo consultado com sucesso."
+      data:
+        type: "array"
+        items: 
+          type: "object"    
+          properties:
+            sigla:
+              type: "string"
+            descricao:
+              type: "string"
+        example: 
+          - sigla: "F"
+            descricao: "Feminino"
+          - sigla: "M"
+            descricao: "Masculino"
+

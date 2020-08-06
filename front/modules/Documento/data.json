@@ -1,0 +1,94 @@
+{
+    "relacaoDocumento": {
+        "selfie": {
+            "titulo": "Foto (selfie do rosto)",
+            "tipoDocumento": "Selfie",
+            "identificador": "selfie",
+            "limite": 1
+        },
+        "documento_identificador": {
+            "titulo": "Identificação Civil (RG, CPF ou CNH)",
+            "descricao": "Por favor, anexar RG + CPF ou somente a CNH. Ou, se for caso, Certidão de Nascimento com RG. A imagem deve ser nítida e <strong>lembre de incluir frente e verso do documento.</strong>",
+            "tipoDocumento": "DocumentoIdentificador",
+            "identificador": "documento_identificador",
+            "limite": 5
+        },
+        "comprovante_endereco": {
+            "titulo": "Comprovante de endereço",
+            "tipoDocumento": "ComprovanteEndereco",
+            "identificador": "comprovante_endereco",
+            "limite": 5
+        },
+        "comprovante_filiacao": {
+            "titulo": "Comprovante de filiação",
+            "descricao": "Documento que comprove a sua filiação na entidade de classe escolhida.",
+            "tipoDocumento": "ComprovanteFiliacao",
+            "identificador": "comprovante_filiacao",
+            "limite": 5
+        },
+        "comprovante_elegibilidade": {
+            "titulo": "Comprovante de elegibilidade",
+            "descricao": "Documento que comprove a sua elegibilidade na entidade de classe escolhida. Pode ser: <strong>\n- Carteira de identidade estudantil válida; \n- Declaração da instituição de ensino (emitida nos últimos 90 dias); \n- Comprovante de matrícula (emitido nos últimos 90 dias);\n- Comprovante de pagamento da mensalidade (emitido e quitado nos últimos 90 dias);</strong>",
+            "tipoDocumento": "ComprovanteElegibilidade",
+            "identificador": "comprovante_elegibilidade",
+            "limite": 5
+        },
+        "comprovante_elegibilidade_conjuge": {
+            "titulo": "Comprovante de elegibilidade",
+            "descricao": "Documento que comprove a sua elegibilidade na entidade de classe escolhida. Pode ser: <strong>\n- Certidão de Casamento; \n- Certidão de Nascimento de filhos em comum; </strong>",
+            "tipoDocumento": "ComprovanteElegibilidadeConjuge",
+            "identificador": "comprovante_elegibilidade_conjuge",
+            "limite": 5
+        },
+        "comprovante_elegibilidade_companheiro": {
+            "titulo": "Comprovante de elegibilidade",
+            "descricao": "Documento que comprove a sua elegibilidade na entidade de classe escolhida. Pode ser: <strong>\n<span >- Declaração de União Estável; </span> <span id='dus' style='font-size: 11px;cursor: pointer;'>Saiba mais</span> \n- Certidão de Nascimento de filhos em comum; </strong>",
+            "tipoDocumento": "ComprovanteElegibilidadeCompanheiro",
+            "identificador": "comprovante_elegibilidade_companheiro",
+            "limite": 5
+        },
+        "comprovante_elegibilidade_enteado": {
+            "titulo": "Comprovante de elegibilidade",
+            "descricao": "Documento que comprove a sua elegibilidade na entidade de classe escolhida. Pode ser: <strong>\n- Se Titular for casado(a): Cópia da Certidão de Casamento;\n- Se Titular for companheiro(a): Declaração de União Estável; </strong>",
+            "tipoDocumento": "ComprovanteElegibilidadeEnteado",
+            "identificador": "comprovante_elegibilidade_enteado",
+            "limite": 5
+        },
+        "comprovante_emancipacao": {
+            "titulo": "Comprovante de emancipação",
+            "tipoDocumento": "ComprovanteEmancipacao",
+            "identificador": "comprovante_emancipacao",
+            "limite": 5
+        },
+        "reducao_carencia": {
+            "titulo": "Redução de Carência – CTP",
+            "tipoDocumento": "ReducaoCarencia",
+            "identificador": "reducao_carencia",
+            "limite": 5
+        },
+        "tutela_termo_de_guarda": {
+            "titulo": "Cópia da Tutela ou Termo de Guarda",
+            "tipoDocumento": "TutelaTermoDeGuarda",
+            "identificador": "tutela_termo_de_guarda",
+            "limite": 5
+        },
+        "outros": {
+            "titulo": "Outros",
+            "tipoDocumento": "Outros",
+            "identificador": "outros",
+            "limite": 5
+        },
+        "laudo_medico_pericia_medica": {
+            "titulo": "Cópia do Laudo Médico e Perícia Médica",
+            "tipoDocumento": "LaudoMedicoPericiaMedica",
+            "identificador": "laudo_medico_pericia_medica",
+            "limite": 5
+        },
+        "dps": {
+            "titulo": "DPS (Declaração Pessoal de Saúde)",
+            "tipoDocumento": "DPS",
+            "identificador": "dps",
+            "limite": 20
+        }
+    }
+}

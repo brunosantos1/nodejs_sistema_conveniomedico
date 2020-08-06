@@ -1,0 +1,27 @@
+{
+  "name": "api-validacao",
+  "description": "API de validação para integração de proposta",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": {
+    "name": ""
+  },
+  "scripts": {
+    "pm2": "pm2 start ./index.js --name api-validacao -i 1",
+    "dev": "nodemon --inspect ./index.js"
+  },
+  "dependencies": {
+    "@qualitech/qneo4j": "0.0.3",
+    "axios": "^0.18.0",
+    "circular-json": "^0.5.5",
+    "fs": "0.0.1-security",
+    "morgan": "^1.9.0",
+    "node-windows": "^0.1.14",
+    "path": "^0.12.7",
+    "pm2": "^3.5.0",
+    "restify": "^8.4.0",
+    "restify-cors-middleware": "^1.1.1",
+    "restify-https": "0.0.3",
+    "rotating-file-stream": "^1.4.0"
+  }
+}

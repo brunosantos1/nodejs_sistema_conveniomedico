@@ -1,0 +1,166 @@
+swagger: "2.0"
+info:
+  description: "API responsável pela autenticação de usuários no E-Commerce"
+  version: "1.0.0"
+  title: "API - Controle Acesso"
+schemes:
+- "https"
+- "http"
+paths:
+  /controle/autenticar:
+    post:
+      summary: "Autenticação de usuário no E-commerce."
+      description: "Autentica o usuário para conceder acesso ao seu perfil no E-commerce."
+      operationId: "AutenticarUsuario"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Dados para autenticação do usuário."
+        required: true
+        schema:
+          $ref: "#/definitions/autenticacao"
+      responses:
+        200:
+          description: "Acesso concedido"
+          schema:
+            $ref: "#/definitions/message"
+        400:
+          description: "Acesso negado / Erro de Processamento"
+          schema:
+            $ref: "#/definitions/message"
+  /controle/cadastro:
+    post:
+      summary: "Cria de usuário no E-commerce."
+      description: "Cria o usuário para conceder acesso ao seu perfil no E-commerce."
+      operationId: "CadastarUsuario"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Dados para criação do usuário."
+        required: true
+        schema:
+          $ref: "#/definitions/novoUsuario"
+      responses:
+        201:
+          description: "Usuário criado com sucesso"
+          schema:
+            $ref: "#/definitions/message"
+        400:
+          description: "Falha de processamento eu não cumprimento de regra"
+          schema:
+            $ref: "#/definitions/message"
+        404:
+          description: "Usuário não foi criado"
+          schema:
+            $ref: "#/definitions/message"
+  /controle/esqueci:
+    post:
+      summary: "Método de Esqueci senha de usuário no E-commerce."
+      description: "Envia um token para alterar a senha do usuário no E-commerce."
+      operationId: "EsqueciSenhaUsuario"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Consulta de usuário."
+        required: true
+        schema:
+          $ref: "#/definitions/esqueci"
+      responses:
+        200:
+          description: "Usuário já cadastrado"
+          schema:
+            $ref: "#/definitions/message"
+        400:
+          description: "Falha de processamento eu não cumprimento de regra"
+          schema:
+            $ref: "#/definitions/message"
+        404:
+          description: "Usuário não encontrado"
+          schema:
+            $ref: "#/definitions/message"
+  /controle/alterar:
+    post:
+      summary: "Altera a senha de usuário no E-commerce."
+      description: "Altera a senha do usuário no E-commerce."
+      operationId: "AlterarSenha"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Consulta de usuário."
+        required: true
+        schema:
+          $ref: "#/definitions/alterarSenha"
+      responses:
+        200:
+          description: "Senha alterada"
+          schema:
+            $ref: "#/definitions/message"
+        400:
+          description: "Senha não alterada"
+          schema:
+            $ref: "#/definitions/message"
+definitions:
+  message:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        description: "Mensagem de Retorno de Processamento."
+  autenticacao:
+    type: "object"
+    properties:
+      cpf:
+        type: "string"
+        example: "999.999.999-99"
+      senha:
+        type: "string"
+        example: "xxxxxx"
+  esqueci:
+    type: "object"
+    properties:
+      cpf:
+        type: "string"
+        example: "999.999.999-99"
+      dataNascimento:
+        type: "string"
+        example: "1984-05-04"
+  novoUsuario:
+    type: "object"
+    properties:
+      cpf:
+        type: "string"
+        example: "999.999.999-99"
+      nome:
+        type: "string"
+        example: "Fulano de Tal"
+      dataNascimento:
+        type: "string"
+        example: "01-01-2019"
+      senha:
+        type: "string"
+        example: "xxxxxx"
+  alterarSenha:
+    type: "object"
+    properties:
+      token:
+        type: "string"
+        example: "mDDDL/XC4uWCkc2kwDaAr75Rkq2sG/VZYDNFTLZ5m+g="
+      novaSenha:
+        type: "string"
+        example: "xxxxx"

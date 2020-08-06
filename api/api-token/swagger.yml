@@ -1,0 +1,97 @@
+swagger: "2.0"
+info:
+  description: "API Para Gerar Token."
+  version: "1.0.0"
+  title: "API Token"
+  contact:
+    email: "celuladigital@qualicorp.com.br"
+host: "localhost:8082"
+tags:
+- name: "Token"
+  description: "Token"
+schemes:
+- "https"
+- "http"
+paths:
+  /api-token/gerarToken:
+    post:
+      tags:
+      - "Token"
+      summary: "Gerar Token"
+      description: "Gerar Token"
+      operationId: "token"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "tipo"
+        in: "query"
+        description: "tipo relacionado ao Token"
+        required: true
+        type: "string"
+      - name: "proposta"
+        in: "query"
+        description: "Número Proposta"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: ""
+          schema:
+            $ref: "#/definitions/response"
+        400:
+          description: "Error Message"
+  /api-token/validaToken:
+    post:
+      tags: 
+      - "Token"
+      summary: "Validar Token"
+      description: "Validar Token"
+      operationId: "ValidarToken"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Validar Token"
+        required: true
+        schema:
+          $ref: "#/definitions/token"
+      responses:
+        200:
+          description: ""
+          schema:
+            $ref: "#/definitions/response"
+        400:
+          description: "Error Message"
+securityDefinitions:
+  petstore_auth:
+    type: "oauth2"
+    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
+    flow: "implicit"
+    scopes:
+      write:pets: "modify pets in your account"
+      read:pets: "read your pets"
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
+definitions:
+  token:
+    type: "object"
+    properties:
+      token:
+        type: "string"
+      ip:
+        type: "string"
+      proposta:
+        type: "string"
+      localizacao:
+        type: "string"  
+  response:
+    type: "object"
+    properties:
+      message: 
+        type: "string"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"

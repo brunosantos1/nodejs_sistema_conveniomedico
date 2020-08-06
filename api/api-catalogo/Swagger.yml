@@ -1,0 +1,65 @@
+swagger: "2.0"
+info:
+  description: "API de Catálogo que permite aplicar as regras e campanhas para o E-Commerce"
+  version: "1.0.0"
+  title: "API Catálogo"
+schemes:
+- "https"
+- "http"
+paths:
+  /catalogo/entidades:
+    get:
+      summary: "Listar apenas as Entidades comercializadas"
+      description: "Método para listar apenas as Entidades que estão configuradas para serem comercializadas."
+      operationId: "listarEntidades"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Operação realizada com sucesso"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Entidades"
+        400:
+          description: "Status de Falha na Entidade ou não cumprimento de Regra de Negócio"
+        404:
+          description: "Status de Dados não encontrados"
+  /catalogo/operadoras/{entidade}:
+    get:
+      summary: "Listar apenas as Operadoras comercializadas"
+      description: "Método para listar apenas as Operadoras que estão configuradas para serem comercializadas."
+      operationId: "listarOperadoras"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "entidade"
+        in: "path"
+        description: "Nome Fantasia da Entidade"
+        required: true
+        type: "string"
+        format: "Nome Fantasia da Entidade"
+      responses:
+        200:
+          description: "Operação realizada com sucesso"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Operadora"
+        400:
+          description: "Status de Falha na Operação ou não cumprimento de Regra de Negócio"
+        404:
+          description: "Status de Dados não encontrados"
+definitions:
+  Entidades:
+    type: "object"
+    properties:
+      entidade:
+        type: "string"
+        description: "Nome Fantasia da Entidade"
+  Operadora:
+    type: "object"
+    properties:
+      operadora:
+        type: "string"
+        description: "Nome Fantasia da Operadora"

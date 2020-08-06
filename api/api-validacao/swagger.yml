@@ -1,0 +1,53 @@
+swagger: '2.0'
+info:
+  description: 'API de validação para integração de proposta'
+  version: 1.0.0
+  title: api-validacao
+  termsOfService: ''
+  contact:
+    email: dev-qualitech@qualicorp.com.br
+host: 'devst2ap34:8082'
+basePath: /api-validacao
+schemes:
+  - https
+  - http
+paths:
+  /validardata:
+    get:
+      summary: API de validação para integração de proposta
+      description: 'API de validação para integração de proposta'
+      operationId: validardata
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Informações de entrada
+          required: true
+          schema:
+            $ref: '#/definitions/input'
+      responses:
+        404:
+          description: Item não localizado
+        200:
+          description: "Regra localizada"
+          schema:
+            $ref: '#/definitions/output'
+
+
+
+definitions:
+  input:
+    type: object
+    properties:
+      inputData:
+        type: string
+        format: string
+  output:
+    type: object
+    properties:
+      outputData:
+        type: string
+        format: string

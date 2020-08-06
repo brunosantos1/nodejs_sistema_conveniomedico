@@ -1,0 +1,615 @@
+swagger: "2.0"
+info:
+  description: "E-commerce: Serviço de manipulação das Simulações"
+  version: "1.0.0"
+  title: "E-commerce: Simulação"
+  termsOfService: ""
+  contact:
+    email: "dev-qualitech@qualicorp.com.br"
+host: "DEVAWSAP03:8082"
+basePath: "/" 
+schemes:
+- "http"
+security:
+- api_key: []
+paths:
+  /simulacao/:CPF:
+    get:
+      tags:
+      - "Simulacao"
+      summary: "E-commerce: Serviço de Simulação"
+      description: "E-commerce: Serviço de manipulação das Simulações"
+      operationId: "ConsultarSimulacao"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "path"
+        name: "cpf"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Resultado da execução"
+          schema:
+            $ref: "#/definitions/Consultar"
+  /simulacao:       
+    put:
+      tags:
+      - "Simulacao"
+      summary: "E-commerce: Serviço de Alteração da Simulação"
+      description: "E-commerce: Serviço de Alteração da Simulação"
+      operationId: "AlterarSimulacao"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "Parâmetros RequestAlterar"
+        required: true
+        schema:
+          $ref: "#/definitions/RequestAlterar"
+      responses:
+        200:
+          description: "Resultado da execução"
+          schema:
+            $ref: "#/definitions/ResponseAlterar"
+    post:
+      tags:
+      - "Simulacao"
+      summary: "E-commerce: Serviço de Incluir da Simulação"
+      description: "E-commerce: Serviço de Alteração da Simulação"
+      operationId: "IncluirSimulacao"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "JSON de Inclusão"
+        required: true
+        schema:
+          $ref: "#/definitions/RequestInclusao"
+      responses:
+        200:
+          description: "Resultado da execução"
+          schema:
+            $ref: "#/definitions/ResponseInclusao"
+securityDefinitions:
+  api_key:
+    description: "Token de acesso à API"
+    type: "apiKey"
+    name: "X-Gravitee-Api-Key"
+    in: "header"
+definitions:
+  Consultar:
+    type: "object"
+    properties:
+      Pessoa:
+        properties:
+          CPF:
+            type: "string"
+            example: "999.999.999-99"
+          TipoParentesco:
+            type: "string"
+            example: "Titular"
+          NomeCompleto:
+            type: "string"
+            example: "João da Silva"
+          Email:
+            type: "string"
+            example: "joaosilva@email.com"
+          Telefone:
+            type: "string"
+            example: "(11) 99269-9885"
+          DataNascimento:
+            type: "string"
+            example: "01/01/1984"
+      Simulacao:
+        type: "object"
+        properties:
+          FiltroRangeValorMinimo:
+            type: "number"
+            example: 999.99
+          TipoLead_Contato:
+            type: "string"
+            example: "SW_SOLICITACAO_CONTATO_SIM / SW_SOLICITACAO_CONTATO_NAO"
+          Cidade:
+            type: "string"
+            example: "São Paulo"
+          TipoLead_ClickToCall:
+            type: "string"
+            example: "SW_CLICK_TO_CALL_SIM / SW_CLICK_TO_CALL_NAO"
+          Estado:
+            type: "string"
+            example: "SP"
+          Hora_Mobile:
+            type: "string"
+            example: "01/08/2019 12:00:00"
+          Latitude:
+            type: "string"
+            example: "-23.563031"
+          Hora_Contato:
+            type: "string"
+            example: "01/08/2019 12:00:00"
+          TipoLead_Chat:
+            type: "string"
+            example: "SW_CHAT_SIM / SW_CHAT_NAO"
+          Formato:
+            type: "string"
+            example: "display"
+          Longitude:
+            type: "string"
+            example: "-46.654490"
+          CEP:
+            type: "string"
+            example: "01310100"
+          Processado:
+            type: "boolean"
+            example: false
+          Hora_ClickToCall:
+            type: "string"
+            example: "01/08/2019 12:00:00"
+          Hora_PedidoOnline:
+            type: "string"
+            example: "01/08/2019 12:00:00"
+          TipoLead_DetalhesPlano:
+            type: "string"
+            example: "SW_DETALHES_DO_PLANO"
+          Ativo:
+            type: "boolean"
+            example: true
+          DataSimulacao:
+            type: "string"
+            example: "31/07/2019"
+          Hora_Chat:
+            type: "string"
+            example: "01/08/2019 12:00:00"
+          FiltroRangeValorMaximo:
+            type: "number"
+            example: 3999.99
+          IpCliente:
+            type: "string"
+            example: "66.66.66.66"
+          Veiculo:
+            type: "string"
+            example: "qualicorp"
+          Hora_DetalhesPlano:
+            type: "string"
+            example: "01/08/2019 12:00:00"
+          QuantidadeDependentes:
+            type: "number"
+            example: 2
+          AdicionaDependentes:
+            type: "boolean"
+            example: true
+          TipoLead_PedidoOnline:
+            type: "string"
+            example: "SW_PEDIDO_ONLINE_SIM / SW_PEDIDO_ONLINE_NAO"
+          TipoLead_Mobile:
+            type: "string"
+            example: "SW_MOBILE_SIM / SW_MOBILE_NAO"
+  RequestAlterar:
+    type: "object"
+    properties:
+      CPF:
+        type: "string"
+        example: "887.705.020-99"
+      Veiculo:
+        type: "string"
+        example: "qualicorp / search_desktop"
+      Formato:
+        type: "string"
+        example: "display / google"
+      AdicionaDependentes:
+        type: "boolean"
+        example: "true - Quando possui Dependentes na Simulação / false - Quando não possui Dependentes na Simulação"
+      QuantidadeDependentes:
+        type: "number"
+        example: 2
+      Dependentes:
+        type: "array"
+        items:
+          type: "string"
+          example: ["30/05/2000","15/08/1991"]
+      FiltroRangeValorMinimo:
+        type: "number"
+        example: 499.99
+      FiltroRangeValorMaximo:
+        type: "number"
+        example: 1999.99
+      TipoLead_ClickToCall:
+        type: "string"
+        example: "SW_CLICK_TO_CALL_SIM / SW_CLICK_TO_CALL_NAO"
+      Hora_ClickToCall:
+        type: "string"
+        example: "31/07/2019 15:31:50"
+      TipoLead_Chat:
+        type: "string"
+        example: "SW_CHAT_SIM / SW_CHAT_NAO"
+      Hora_Chat:
+        type: "string"
+        example: "31/07/2019 15:32:30"
+      TipoLead_DetalhesPlano:
+        type: "string"
+        example: "SW_DETALHES_DO_PLANO / enviar string vazia"
+      Hora_DetalhesPlano:
+        type: "string"
+        example: "31/07/2019 15:32:15"
+      TipoLead_Contato:
+        type: "string"
+        example: "SW_SOLICITACAO_CONTATO_SIM / SW_SOLICITACAO_CONTATO_NAO"
+      Hora_Contato:
+        type: "string"
+        example: "31/07/2019 15:33:42"
+      TipoLead_PedidoOnline:
+        type: "string"
+        example: "SW_PEDIDO_ONLINE_SIM / SW_PEDIDO_ONLINE_NAO"
+      Hora_PedidoOnline:
+        type: "string"
+        example: "31/07/2019 15:33:42"
+      TipoLead_Mobile:
+        type: "string"
+        example: "SW_MOBILE_SIM / SW_MOBILE_NAO"
+      Hora_Mobile:
+        type: "string"
+        example: "31/07/2019 15:30:24"
+      Entidade:
+        type: "string"
+        example: "CREA-SP"
+      Campanha:
+        type: "string"
+        example: "campanha2019-Ecommerce"
+      Profissao:
+        type: "string"
+        example: "Programador"
+      CodigoEntidade:
+        type: "string"
+        example: "ABRACEM"
+      CodigoOperadora:
+        type: "string"
+        example: "480752189" 
+      Operadora:
+        type: "string"
+        example: "SulAmérica Saúde"
+      TipoAcomodacao:
+        type: "string"
+        example: "COLETIVA"
+      Reembolso:
+        type: "string"
+        example: "S"
+      CodigoPlano:
+        type: "string"
+        example: "192627421"
+      Plano:
+        type: "string"
+        example: "Vital 100 SP Adesão Trad.16 A AHO QC"
+      ValorPlanoSimulado:
+        type: "number"
+        example: 1999.99
+      TipoLead_ContatoNO:
+        type: "string"
+        example: "SW_SOLICITACAO_CONTATO_SIM / SW_SOLICITACAO_CONTATO_NAO"
+      Hora_ContatoNO:
+        type: "string"
+        example: "15:29:13.487"
+  ResponseAlterar:
+    type: "object"
+    properties:
+      Atualizado:
+        type: "object"
+        properties:
+          Pessoa:
+            properties:
+              CPF:
+                type: "string"
+                example: "999.999.999-99"
+              TipoParentesco:
+                type: "string"
+                example: "Titular"
+              NomeCompleto:
+                type: "string"
+                example: "João da Silva"
+              Email:
+                type: "string"
+                example: "joaosilva@email.com"
+              Telefone:
+                type: "string"
+                example: "(11) 99269-9885"
+              DataNascimento:
+                type: "string"
+                example: "01/01/1984"
+          SimulacaoId:
+            type: "number"
+            example: 325
+          Simulacao:
+            type: "object"
+            properties:
+              FiltroRangeValorMinimo:
+                type: "number"
+                example: 999.99
+              TipoLead_Contato:
+                type: "string"
+                example: "SW_SOLICITACAO_CONTATO_SIM / SW_SOLICITACAO_CONTATO_NAO"
+              Cidade:
+                type: "string"
+                example: "São Paulo"
+              TipoLead_ClickToCall:
+                type: "string"
+                example: "SW_CLICK_TO_CALL_SIM / SW_CLICK_TO_CALL_NAO"
+              Estado:
+                type: "string"
+                example: "SP"
+              Hora_Mobile:
+                type: "string"
+                example: "01/08/2019 12:00:00"
+              Latitude:
+                type: "string"
+                example: "-23.563031"
+              Hora_Contato:
+                type: "string"
+                example: "01/08/2019 12:00:00"
+              TipoLead_Chat:
+                type: "string"
+                example: "SW_CHAT_SIM / SW_CHAT_NAO"
+              Formato:
+                type: "string"
+                example: "display"
+              Longitude:
+                type: "string"
+                example: "-46.654490"
+              CEP:
+                type: "string"
+                example: "01310100"
+              Processado:
+                type: "boolean"
+                example: false
+              Hora_ClickToCall:
+                type: "string"
+                example: "01/08/2019 12:00:00"
+              Hora_PedidoOnline:
+                type: "string"
+                example: "01/08/2019 12:00:00"
+              TipoLead_DetalhesPlano:
+                type: "string"
+                example: "SW_DETALHES_DO_PLANO"
+              Ativo:
+                type: "boolean"
+                example: true
+              DataSimulacao:
+                type: "string"
+                example: "31/07/2019"
+              Hora_Chat:
+                type: "string"
+                example: "01/08/2019 12:00:00"
+              FiltroRangeValorMaximo:
+                type: "number"
+                example: 3999.99
+              IpCliente:
+                type: "string"
+                example: "66.66.66.66"
+              Veiculo:
+                type: "string"
+                example: "qualicorp"
+              Hora_DetalhesPlano:
+                type: "string"
+                example: "01/08/2019 12:00:00"
+              QuantidadeDependentes:
+                type: "number"
+                example: 2
+              AdicionaDependentes:
+                type: "boolean"
+                example: true
+              TipoLead_PedidoOnline:
+                type: "string"
+                example: "SW_PEDIDO_ONLINE_SIM / SW_PEDIDO_ONLINE_NAO"
+              TipoLead_Mobile:
+                type: "string"
+                example: "SW_MOBILE_SIM / SW_MOBILE_NAO"
+              Campanha:
+    type: "string"
+                example: "campanha2019-Ecommerce"
+              Profissao:
+        type: "string"
+                example: "Programador"
+              CodigoEntidade:
+        type: "string"
+                example: "ABRACEM"
+              Entidade:
+          type: "string"
+                example: "ABRACEM"
+              CodigoOperadora:
+        type: "string"
+                example: "480752189" 
+              Operadora:
+        type: "string"
+                example: "SulAmérica Saúde"
+              TipoAcomodacao:
+        type: "string"
+                example: "COLETIVA"
+              Reembolso:
+        type: "string"
+                example: "S"
+              CodigoPlano:
+        type: "string"
+                example: "192627421"
+              Plano:
+        type: "string"
+                example: "Vital 100 SP Adesão Trad.16 A AHO QC"
+              ValorPlanoSimulado:
+                type: "number"
+                example: 1999.99
+              TipoLead_ContatoNO:
+        type: "string"
+        example: "SW_SOLICITACAO_CONTATO_SIM / SW_SOLICITACAO_CONTATO_NAO"
+              Hora_ContatoNO:
+        type: "string"
+        example: "Engenheiro(a)"
+      TipoLead_HOME_LOGIN_DESISTENCIA:
+        type: "string"
+      hora_HOME_LOGIN_DESISTENCIA:
+        type: "string"
+        example: "yyyy-mm-dd hh:mm:ss"
+      TipoLead_LOGIN_DESISTENCIA:
+        type: "string"
+      hora_LOGIN_DESISTENCIA:
+        type: "string"
+        example: "yyyy-mm-dd hh:mm:ss"
+      TipoLead_CADASTRO_DESISTENCIA:
+        type: "string"
+      hora_CADASTRO_DESISTENCIA:
+        type: "string"
+        example: "yyyy-mm-dd hh:mm:ss"
+      LEAD_ACEITA_CONTATO:
+        type: "boolean"
+  Inclusao:
+    type: "object"
+    properties:
+      CPF:
+        type: "string"
+        example: "999.999.999-99"
+      Estado:
+        type: "string"
+        example: "SP"
+      Cidade:
+        type: "string"
+        example: "São Paulo"
+      NomeCompleto:
+        type: "string"
+        example: "João da Silva"
+      Email:
+        type: "string"
+        example: "joaosilva@email.com"
+      Telefone:
+        type: "string"
+        example: "(11) 99269-9885"
+      CEP:
+        type: "string"
+        example: "01310100"
+      Latitude:
+        type: "number"
+        example: -23.563031
+      Longitude:
+        type: "number"
+        example: -46.654490
+      IpCliente:
+        type: "string"
+        example: "66.66.66.66"
+      DataSimulacao:
+        type: "string"
+        example: "31/07/2019"
+      Veiculo:
+        type: "string"
+        example: "qualicorp / search_desktop"
+      Formato:
+        type: "string"
+        example: "display / google"
+      AdicionaDependentes:
+        type: "boolean"
+        example: "true - Quando possui Dependentes na Simulação / false - Quando não possui Dependentes na Simulação"
+      QuantidadeDependentes:
+        type: "number"
+        example: 2
+      Dependentes:
+        type: "array"
+        items:
+          type: "string"
+          example: ["30/05/2000","15/08/1991"]
+      FiltroRangeValorMinimo:
+        type: "number"
+        example: 499.99
+      FiltroRangeValorMaximo:
+        type: "number"
+        example: 1999.99
+      TipoLead_ClickToCall:
+        type: "string"
+        example: "SW_CLICK_TO_CALL_SIM / SW_CLICK_TO_CALL_NAO"
+      Hora_ClickToCall:
+        type: "string"
+        example: "31/07/2019 15:31:50"
+      TipoLead_Chat:
+        type: "string"
+        example: "SW_CHAT_SIM / SW_CHAT_NAO"
+      Hora_Chat:
+        type: "string"
+        example: "31/07/2019 15:32:30"
+      TipoLead_DetalhesPlano:
+        type: "string"
+        example: "SW_DETALHES_DO_PLANO / enviar string vazia"
+      Hora_DetalhesPlano:
+        type: "string"
+        example: "31/07/2019 15:32:15"
+      TipoLead_Contato:
+        type: "string"
+        example: "SW_SOLICITACAO_CONTATO_SIM / SW_SOLICITACAO_CONTATO_NAO"
+      Hora_Contato:
+        type: "string"
+        example: "31/07/2019 15:33:42"
+      TipoLead_PedidoOnline:
+        type: "string"
+        example: "SW_PEDIDO_ONLINE_SIM / SW_PEDIDO_ONLINE_NAO"
+      Hora_PedidoOnline:
+        type: "string"
+        example: "31/07/2019 15:33:42"
+      TipoLead_Mobile:
+        type: "string"
+        example: "SW_MOBILE_SIM / SW_MOBILE_NAO"
+      Hora_Mobile:
+        type: "string"
+        example: "31/07/2019 15:30:24"
+      Campanha:
+        type: "string"
+        example: "campanha2019-Ecommerce"
+      Profissao:
+        type: "string"
+        example: "Programador"
+      CodigoEntidade:
+        type: "string"
+        example: "ABRACEM"
+      Entidade:
+        type: "string"
+        example: "ABRACEM"
+      CodigoOperadora:
+        type: "string"
+        example: "480752189" 
+      Operadora:
+        type: "string"
+        example: "SulAmérica Saúde"
+      TipoAcomodacao:
+        type: "string"
+        example: "COLETIVA"
+      Reembolso:
+        type: "string"
+        example: "S"
+      CodigoPlano:
+        type: "string"
+        example: "192627421"
+      Plano:
+        type: "string"
+        example: "Vital 100 SP Adesão Trad.16 A AHO QC"
+      ValorPlanoSimulado:
+        type: "number"
+        example: 1999.99
+      TipoLead_ContatoNO:
+        type: "string"
+        example: "SW_SOLICITACAO_CONTATO_SIM / SW_SOLICITACAO_CONTATO_NAO"
+      Hora_ContatoNO:
+        type: "string"
+        example: "15:29:13.487"
+	  TipoLead_HOME_LOGIN_DESISTENCIA:
+        type: "string"
+      hora_HOME_LOGIN_DESISTENCIA:
+        type: "string"
+        example: "yyyy-mm-dd hh:mm:ss"
+      TipoLead_LOGIN_DESISTENCIA:
+        type: "string"
+      hora_LOGIN_DESISTENCIA:
+        type: "string"
+        example: "yyyy-mm-dd hh:mm:ss"
+      TipoLead_CADASTRO_DESISTENCIA:
+        type: "string"
+      hora_CADASTRO_DESISTENCIA:
+        type: "string"
+        example: "yyyy-mm-dd hh:mm:ss"
+      LEAD_ACEITA_CONTATO:
+        type: "boolean"
+  ResponseInclusao:
+    type: "string"
+    example: "Simulação Criada com Sucesso! / Mensagem de Erro."
+      

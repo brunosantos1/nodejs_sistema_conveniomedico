@@ -1,0 +1,173 @@
+swagger: "2.0"
+info:
+  description: "API para Cadastro de Titular e Dependentes da contratação."
+  version: "1.0.0"
+  title: "API Contratação"
+  contact:
+    email: "celuladigital@qualicorp.com.br"
+host: "localhost:8082"
+tags:
+- name: "Contratacao"
+  description: "Contratacao"
+schemes:
+- "https"
+- "http"
+paths:
+  /contratacao/{ID}:
+    get:
+      tags:
+      - "Contratação"
+      summary: "Consultar proposta"
+      description: "Consultar proposta"
+      operationId: "consultar-proposta"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "ID"
+        in: "path"
+        description: "Número da Proposta"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: ""
+          schema:
+            $ref: "#/definitions/response"
+        400:
+          description: "Error Message"
+  /contratacao/vigencia:
+    post:
+      tags:
+      - "Vigência"
+      summary: 'Inclusão de data de vigência'
+      description: 'Registra data de vigência de uma contratação'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: request
+          required: true
+          schema:
+            $ref: '#/definitions/req-vigencia'
+      responses:
+        '400':
+          description: "Não foi possível incluir a data de vigência na proposta." 
+        '201':
+          description: "Data de vigência incluída na proposta com sucesso."
+        schema:
+           $ref: '#/definitions/res-vigencia'
+securityDefinitions:
+  petstore_auth:
+    type: "oauth2"
+    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
+    flow: "implicit"
+    scopes:
+      write:pets: "modify pets in your account"
+      read:pets: "read your pets"
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
+definitions:
+  req-vigencia:
+    type: "object"
+    properties:
+      nrProposta:
+        type: string
+        example: '123456' 
+      dataVigencia:
+        type: string
+        format: date
+        example: '2019-09-27'
+  res-vigencia:
+    type: "object"
+    properties:
+      message:
+        type: string
+        example: "Data de vigência incluída na proposta com sucesso."
+  response: 
+    type: "object"
+    properties:
+      dependentes:
+        type: array
+        items:
+          type: "object"
+      titular:
+        type: "object"
+        properties:
+         nome:
+          type: "string"
+         cpf:
+          type: "string"
+         email:
+          type: "string"
+         nascimento:
+          type: "string"
+         rg:
+          type: "string"
+         telefone:
+          type: "string"
+         sexo:
+          type: "string"
+         nomeMae:
+          type: "string"
+         emancipado:
+          type: "boolean"
+         estadoCivil:
+          type: "string"
+      endereco:
+        type: "object"
+        properties:
+         estado:
+          type: "string"
+         cidade:
+          type: "string"
+         enderecoCobranca:
+          type: "string"
+         complemento:
+          type: "string"
+         endereco:
+          type: "string"
+         numero:
+          type: "string"
+         bairro:
+          type: "string"
+         cep:
+          type: "string"
+      proposta:
+        type: "object"
+        properties:
+         operadoraCongenere:
+          type: "number"
+         ativo:
+          type: "boolean"
+         sequencia:
+          type: "number"
+         planoIdSinf:
+          type: "string"
+         statusProposta:
+          type: "number"
+         nrProposta:
+          type: "string"
+         fluxoId:
+          type: "string"
+         dataAlteracao:
+          type: "string"
+         planoId:
+          type: "string"
+         enderecoCobranca:
+          type: "string"
+         aceiteNaoReducaoCarencia:
+          type: "boolean"
+         possuiPlano:
+          type: "boolean"
+         dataInicio:
+          type: "string"
+      responsavelLegal:
+        type: "object"
+      enderecoComercial:
+        type: "object"
+      profissao:
+        type: "object"

@@ -1,0 +1,25 @@
+{
+  "name": "schedule-lead",
+  "description": "schedule para inclusão de Leads",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": {
+    "name": ""
+  },
+  "scripts": {
+    "pm2": "pm2 start ./index.js --name schedule-lead -i 1 --exp-backoff-restart-delay=5000"
+  },
+  "dependencies": {
+    "@qualitech/qneo4j": "0.0.2",
+    "axios": "^0.18.0",
+    "cron": "^1.7.1",
+    "fs": "0.0.1-security",
+    "morgan": "^1.9.1",
+    "neo4j-driver": "^1.7.3",
+    "node-windows": "^0.1.14",
+    "path": "^0.12.7",
+    "restify": "7.0.0",
+    "restify-cors-middleware": "^1.1.1",
+    "rotating-file-stream": "^1.4.0"
+  }
+}

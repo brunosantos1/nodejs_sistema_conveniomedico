@@ -1,0 +1,325 @@
+{
+    "dadosPessoaisTitular": [
+        {
+            "label": "Nome",
+            "name": "nome",
+            "value": "",
+            "validation": "required",
+            "type": "text",
+            "isReadonly": true
+        },
+        {
+            "label": "Nome social (opcional)",
+            "name": "nomeSocial",
+            "value": "",
+            "validation": "",
+            "type": "text"
+        },
+        {
+            "label": "Data de nascimento",
+            "name": "nascimento",
+            "value": "",
+            "validation": "required|nascimento",
+            "type": "date",
+            "isReadonly": true
+        },
+        {
+            "label": "CPF Raíz",
+            "name": "cpfRaiz",
+            "value": "",
+            "type": "text",
+            "hidde": true,
+            "isReadonly": true
+        },
+        {
+            "label": "CPF",
+            "name": "cpf",
+            "value": "",
+            "type": "text",
+            "mask": [
+                "###.###.###-##",
+                "##.###.###/####-##"
+            ],
+            "validation": "required|cpf",
+            "isReadonly": true
+        },
+        {
+            "label": "E-mail",
+            "name": "email",
+            "value": "",
+            "type": "email",
+            "validation": "required|email",
+            "isReadonly": true
+        },
+        {
+            "label": "Telefone celular",
+            "name": "telefone",
+            "value": "",
+            "type": "text",
+            "mask": [
+                "(##) #####-####",
+                "(##) ####-####"
+            ],
+            "validation": "required|phoneValid",
+            "isReadonly": true
+        }
+    ],
+    "dadosRepresentanteLegal": [
+        {
+            "label": "CPF",
+            "name": "cpf",
+            "value": "",
+            "type": "text",
+            "mask": [
+                "###.###.###-##",
+                "##.###.###/####-##"
+            ],
+            "validation": "required|cpf"
+        },
+        {
+            "label": "Nome",
+            "name": "nome",
+            "value": "",
+            "validation": "required",
+            "type": "text"
+        },
+        {
+            "label": "Data de nascimento",
+            "name": "nascimento",
+            "value": "",
+            "validation": "required|nascimento",
+            "type": "date"
+        },
+        {
+            "label": "RG",
+            "name": "rg",
+            "value": "",
+            "type": "number",
+            "mask": [
+                "##################"
+            ],
+            "validation": "required"
+        },
+        {
+            "label": "Orgão expedidor",
+            "name": "orgaoExpedidor",
+            "value": "",
+            "validation": "required",
+            "type": "text"
+        },
+        {
+            "label": "Sexo",
+            "name": "sexo",
+            "value": "",
+            "type": "select",
+            "validation": "required",
+            "dataSource": {
+                "endpoint": "tipos-sexo",
+                "label": "descricao",
+                "code": "sigla"
+            }
+        },
+        {
+            "label": "Estado civil",
+            "name": "estadoCivil",
+            "value": "",
+            "type": "select",
+            "validation": "required",
+            "dataSource": {
+                "stateName": "listaEstadoCivil"
+            }
+        },
+        {
+            "label": "Grau de parentesco",
+            "name": "parentesco",
+            "value": "",
+            "type": "select",
+            "validation": "required",
+            "dataSource": {
+                "stateName": "listaParentesco"
+            }
+        }
+    ],
+    "dadosDependente": [
+        {
+            "label": "Data de nascimento",
+            "name": "nascimento",
+            "value": "",
+            "validation": "required|nascimento",
+            "type": "date",
+            "isReadonly": true
+        },
+        {
+            "label": "CPF",
+            "name": "cpf",
+            "value": "",
+            "type": "text",
+            "mask": [
+                "###.###.###-##",
+                "##.###.###/####-##"
+            ],
+            "validation": "required|cpf"
+        },
+        {
+            "label": "Nome",
+            "name": "nome",
+            "value": "",
+            "validation": "required",
+            "type": "text",
+            "isReadonly": true
+        },
+        {
+            "label": "Nome da mãe",
+            "name": "nomeMae",
+            "value": "",
+            "type": "text",
+            "validation": "required"
+        },
+        {
+            "label": "Sexo",
+            "name": "sexo",
+            "value": "",
+            "type": "select",
+            "validation": "required",
+            "dataSource": {
+                "endpoint": "tipos-sexo",
+                "label": "descricao",
+                "code": "sigla"
+            }
+        },
+        {
+            "label": "Estado civil",
+            "name": "estadoCivil",
+            "value": "",
+            "type": "select",
+            "validation": "required",
+            "dataSource": {
+                "stateName": "listaEstadoCivil"
+            }
+        },
+        {
+            "label": "Grau de parentesco",
+            "name": "parentesco",
+            "value": "",
+            "type": "select",
+            "validation": "required",
+            "dataSource": {
+                "stateName": "listaParentesco"
+            }
+        }
+    ],
+    "senhaAcesso": [
+        {
+            "label": "Senha",
+            "name": "senha",
+            "value": "",
+            "type": "password",
+            "validation": "required"
+        }
+    ],
+    "senhaNovoAcesso": [
+        {
+            "label": "Senha",
+            "name": "senha",
+            "value": "",
+            "type": "password"
+        },
+        {
+            "label": "Confirma senha",
+            "name": "confirmaSenha",
+            "value": "",
+            "type": "password"
+        }
+    ],
+    "dadosComplementaresTitular": [
+        {
+            "label": "Nome da mãe",
+            "name": "nomeMae",
+            "value": "",
+            "type": "text",
+            "validation": "required"
+        },
+        {
+            "label": "Sexo",
+            "name": "sexo",
+            "value": "",
+            "type": "select",
+            "validation": "required",
+            "dataSource": {
+                "endpoint": "tipos-sexo",
+                "label": "descricao",
+                "code": "sigla"
+            }
+        },
+        {
+            "label": "Estado civil",
+            "name": "estadoCivil",
+            "value": "",
+            "type": "select",
+            "validation": "required",
+            "dataSource": {
+                "stateName": "listaEstadoCivil"
+            }
+        },
+        {
+            "label": "RG",
+            "name": "rg",
+            "value": "",
+            "type": "number",
+            "mask": [
+                "##################"
+            ],
+            "validation": "required"
+        }
+    ],
+    "dadosEnderecoTitular": [
+        {
+            "label": "CEP",
+            "name": "cep",
+            "value": "",
+            "type": "text",
+            "validation": "required"
+        },
+        {
+            "label": "Endereço",
+            "name": "endereco",
+            "value": "",
+            "type": "text",
+            "validation": "required"
+        },
+        {
+            "label": "Bairro",
+            "name": "bairro",
+            "value": "",
+            "type": "text",
+            "validation": "required"
+        },
+        {
+            "label": "Cidade",
+            "name": "cidade",
+            "value": "",
+            "type": "text",
+            "validation": "required"
+        },
+        {
+            "label": "Estado",
+            "name": "estado",
+            "value": "",
+            "type": "text",
+            "validation": "required"
+        },
+        {
+            "label": "Número",
+            "name": "numero",
+            "value": "",
+            "type": "text",
+            "validation": "required"
+        },
+        {
+            "label": "Complemento",
+            "name": "complemento",
+            "value": "",
+            "type": "text"
+        }
+    ]
+}

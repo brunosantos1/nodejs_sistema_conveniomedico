@@ -1,0 +1,9 @@
+exports.cql = {
+  cqlConsultaCidadesPorEstado: `MATCH (c:Cidades { Estado: '@Estado' }) RETURN {Cidades:COLLECT(c{.*})}`,
+  cqlConsultarEndereco: `MATCH (e:Enderecos { CEP: '@CEP' }) RETURN {Enderecos:COLLECT(e{.*})}`,
+  cqlInserirEndereco: `CREATE (e:Enderecos { CEP: '@CEP', TipoEndereco: '@TIPOENDERECO', Endereco: '@ENDERECO', EnderecoAbreviado: '@ENDERECO_ABREV', Numero: '@NUMERO', Complemento: '@COMPLEMENTO', Bairro: '@BAIRRO', BairroAbrev: '@BAIRRO_ABREV' }) RETURN e`,
+  cqlVincularEnderecoCidade: `MATCH (e:Enderecos { CEP: '@CEP' }),( c:Cidades { Cidade: '@Cidade', Estado: '@Estado' } ) CREATE (e)-[:SITUADO]->(c) RETURN c,e`,
+  cqlVincularEnderecoPessoa: `MATCH ( p:Pessoa { CPF: '@CPF' }),( e:Enderecos { CEP: '@CEP' } ) CREATE (p)-[:MORA]->(e) RETURN p,e`,
+  cqlConsultarPessoaEndereco: `MATCH (p:Pessoa { CPF:'@CPF' })-[r:MORA]->(e:Enderecos { CEP:'@CEP' }) RETURN p,e`,
+  oracleConsultarEndereco: `CALL apoc.load.jdbc('oracle_enderecos',"SELECT LTRIM(RTRIM(LG.CEP,LG.TLO_TX)) AS TIPO_ENDERECO,LTRIM(RTRIM(LG.LOG_NO)) AS ENDERECO_NOME,LTRIM(RTRIM(LG.LOG_NO_ABREV)) AS ENDERECO_ABREV,LTRIM(RTRIM(BA.BAI_NO)) AS BAIRRO_NOME,LTRIM(RTRIM(BA.BAI_NO_ABREV)) AS BAIRRO_ABREV,LTRIM(RTRIM(LC.LOC_NO)) AS CIDADE_NOME,LTRIM(RTRIM(LC.LOC_NO_ABREV)) AS CIDADE_ABREV,LTRIM(RTRIM(UF.NM_UNIDADE_FEDERATIVA)) AS ESTADO_NOME,LTRIM(RTRIM(UF.UFE_SG)) AS ESTADO_SIGLA FROM DOM_ADM.LOG_LOGRADOURO LG INNER JOIN DOM_ADM.LOG_BAIRRO BA ON BA.BAI_NU = LG.BAI_NU_INI INNER JOIN DOM_ADM.LOG_LOCALIDADE LC ON LC.LOC_NU = LG.LOC_NU INNER JOIN DOM_ADM.UNIDADE_FEDERATIVA UF ON UF.UFE_SG = LC.UFE_SG WHERE LG.CEP = '@CEP'") YIELD row RETURN row{.*}`
+};
